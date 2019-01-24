@@ -77,3 +77,31 @@ exports.sendPost = async (req, res) => {
     res.status(200).json(result);
   }
 };
+
+exports.getPost = async (req, res) => {
+  const {
+    count,
+  } = req.params;
+  try {
+    const post = await allowPost.find({}, { __v: false, _id: false }).sort({ idx: -1 }).limit(5).skip(parseInt(count, 10));
+    if (post.length) {
+      res.status(200).json({
+        status: 200,
+        desc: '오홍홍 좋아용',
+        post,
+      });
+    } else {
+      res.status(200).json({
+        status: 404,
+        desc: '글이 없어요',
+      });
+    }
+  } catch (error) {
+    const result = {
+      status: 500,
+      error: error.message,
+    };
+    console.log(error.message);
+    res.status(200).json(result);
+  }
+};

@@ -5,5 +5,6 @@ module.exports = {
       "no-console": "off",
       "no-param-reassign": "off",
       "guard-for-in": "off",
+      "import/no-unresolved": "off"
   }
 };

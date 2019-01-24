@@ -2,10 +2,18 @@ const allowPost = require('database/models/allowPost');
 
 exports.count = async (req, res) => {
   try {
-    res.status(200).json({
-      status: 200,
-      count: await allowPost.find({}).count(),
-    });
+    const count = await allowPost.find({}).count();
+    if (count) {
+      res.status(200).json({
+        status: 200,
+        count,
+      });
+    } else {
+      res.status(200).json({
+        status: 404,
+        desc: '글이 없어요!',
+      });
+    }
   } catch (error) {
     const result = {
       status: 500,

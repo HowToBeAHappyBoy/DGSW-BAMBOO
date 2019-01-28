@@ -1,5 +1,4 @@
 const allowPost = require('database/models/allowPost');
-const rejectPost = require('database/models/rejectPost');
 const waitPost = require('database/models/waitPost');
 const { camelKeys } = require('change-object-case');
 

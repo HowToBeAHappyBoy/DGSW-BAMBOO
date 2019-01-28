@@ -7,5 +7,28 @@
     "eslint": "^5.12.1",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.15.0"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.395.0",
+    "body-parser": "^1.18.2",
+    "change-object-case": "^0.2.0",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.4",
+    "cross-env": "^5.2.0",
+    "crypto": "^1.0.1",
+    "express": "^4.16.3",
+    "fb": "^2.0.0",
+    "fs": "^0.0.1-security",
+    "gm": "^1.23.1",
+    "jsonwebtoken": "^8.2.0",
+    "mongoose": "^5.0.12",
+    "morgan": "^1.9.0",
+    "multer": "^1.4.1",
+    "multer-s3": "^2.9.0",
+    "uuid4": "^1.1.4"
+  },
+  "scripts": {
+    "start": "node src",
+    "start:dev": "cross-env NODE_PATH=src nodemon --watch src/ src/index.js"
   }
 }

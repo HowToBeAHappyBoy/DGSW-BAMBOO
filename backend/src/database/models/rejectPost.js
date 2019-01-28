@@ -9,7 +9,6 @@ const rejectPost = Schema({
   rejecteDate: { type: Date, require: true, default: Date.now },
   type: { type: Number, require: true, unique: false },
   imgs: { type: [Object], require: false },
-  tumb: { type: [Object], require: false },
   writerPicture: { type: String, require: false },
   writerName: { type: String, require: false },
   writerUrl: { type: String, require: false },

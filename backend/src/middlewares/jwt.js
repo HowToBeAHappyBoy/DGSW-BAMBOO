@@ -37,4 +37,4 @@ const certFunc = async (req, res, next) => {
   }).catch(onError);
 };
 
-export default certFunc;
+module.exports = certFunc;

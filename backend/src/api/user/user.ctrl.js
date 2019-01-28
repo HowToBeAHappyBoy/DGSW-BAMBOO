@@ -34,26 +34,6 @@ exports.sendPost = async (req, res) => {
     const {
       ...data
     } = camelKeys(req.body);
-    const overlapReject = await rejectPost.find({
-      personalString: data.personalString,
-      isRead: false,
-    });
-    const overlapWait = await waitPost.find({
-      personalString: data.personalString,
-      isChange: false,
-    });
-    const overlapCheck = Object.assign(
-      overlapReject,
-      overlapWait,
-    );
-    if (overlapCheck.length) {
-      const result = {
-        status: 401,
-        error: '개인 확인 문자열 중복, 바꿔주세요',
-      };
-      res.status(200).json(result);
-      return;
-    }
     const lastPost = await waitPost.findOne().sort({ idx: -1 });
     if (lastPost === null) {
       data.idx = 1;

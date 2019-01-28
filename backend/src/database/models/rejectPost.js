@@ -15,8 +15,6 @@ const rejectPost = Schema({
   writerUrl: { type: String, require: false },
   admin: { type: String, require: true },
   reason: { type: String, require: true },
-  personalString: { type: String, require: true },
-  isRead: { type: Boolean, require: false, default: false },
 },
 {
   collection: 'rejectPost',

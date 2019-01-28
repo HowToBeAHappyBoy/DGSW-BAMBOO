@@ -46,11 +46,9 @@ Admin.methods.checkPassword = (pw) => {
   return this.password === resultPw;
 };
 
-// eslint-disable-next-line func-names
-Admin.methods.urgentToken = function () {
+Admin.methods.urgentToken = () => {
   return new Promise((resolve, reject) => {
     jwt.sign({
-      // eslint-disable-next-line no-underscore-dangle
       _id: this._id,
       admin: this.name,
     },

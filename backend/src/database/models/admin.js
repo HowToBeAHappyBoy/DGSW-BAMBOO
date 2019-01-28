@@ -5,7 +5,7 @@ const crypto = require('crypto');
 const jwt = require('jsonwebtoken');
 const {
   secret,
-} = require('config.json/serverconfig.json');
+} = require('config/serverconfig.json');
 
 const Admin = Schema({
   id: { type: String, require: true, unique: true },

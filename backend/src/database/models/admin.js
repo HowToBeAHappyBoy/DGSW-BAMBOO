@@ -14,7 +14,7 @@ const Admin = Schema({
 }, {
   collection: 'admin',
 });
-Admin.statics.signup = (id, pw, name) => {
+Admin.statics.signup = function (id, pw, name) {
   const cipher = crypto.createCipher('aes-256-cbc', secret);
   let resultId = cipher.update(id, 'utf8', 'base64');
   resultId += cipher.final('base64');
@@ -32,21 +32,21 @@ Admin.statics.signup = (id, pw, name) => {
   }).save();
 };
 
-Admin.statics.findById = (_id) => {
+Admin.statics.findById = function (_id) {
   const cipher = crypto.createCipher('aes-256-cbc', secret);
   let id = cipher.update(_id, 'utf8', 'base64');
   id += cipher.final('base64');
   return this.findOne({ id }).exec();
 };
 
-Admin.methods.checkPassword = (pw) => {
+Admin.methods.checkPassword = function (pw) {
   const resultPw = crypto.createHmac('sha1', secret)
     .update(pw)
     .digest('base64');
   return this.password === resultPw;
 };
 
-Admin.methods.urgentToken = () => {
+Admin.methods.urgentToken = function () {
   return new Promise((resolve, reject) => {
     jwt.sign({
       _id: this._id,
@@ -63,4 +63,4 @@ Admin.methods.urgentToken = () => {
   });
 };
 
-module.exports = mongoose.model('admin', Admin);
+module.exports = mongoose.model('Admin', Admin);

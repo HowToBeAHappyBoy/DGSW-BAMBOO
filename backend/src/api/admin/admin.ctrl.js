@@ -187,3 +187,66 @@ exports.allow = async (req, res) => {
     res.status(200).json(result);
   }
 };
+
+exports.getPost = async (req, res) => {
+  const {
+    count,
+    type,
+  } = req.query;
+  try {
+    switch (type) {
+      case '0':
+        res.status(200).json({
+          stats: 200,
+          post: await waitPost
+            .find({ isChange: false }, {
+              __v: false,
+              _id: false,
+            })
+            .sort({ idx: 1 })
+            .limit(5)
+            .skip(parseInt(count, 10)),
+        });
+        break;
+      case '1':
+        res.status(200).json({
+          stats: 200,
+          post: await rejectPost
+            .find({}, {
+              __v: false,
+              _id: false,
+            })
+            .sort({ idx: -1 })
+            .limit(5)
+            .skip(parseInt(count, 10)),
+        });
+        break;
+      case '2':
+        res.status(200).json({
+          stats: 200,
+          post: await allowPost
+            .find({}, {
+              __v: false,
+              _id: false,
+            })
+            .sort({ idx: -1 })
+            .limit(5)
+            .skip(parseInt(count, 10)),
+        });
+        break;
+      default:
+        res.status(200).json({
+          stats: 401,
+          desc: '타입이 잘못됐어요',
+        });
+        break;
+    }
+  } catch (error) {
+    const result = {
+      status: 500,
+      error: error.message,
+    };
+    console.log(error.message);
+    res.status(200).json(result);
+  }
+};

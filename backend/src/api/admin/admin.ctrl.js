@@ -1,6 +1,7 @@
 const allowPost = require('database/models/allowPost');
 const rejectPost = require('database/models/rejectPost');
 const waitPost = require('database/models/waitPost');
+const facebook = require('middlewares/facebook');
 
 exports.count = async (req, res) => {
   const {
@@ -83,6 +84,95 @@ exports.reject = async (req, res) => {
       imgs,
     });
     await waitPost.updateOne({ idx }, { $set: { isChange: true } });
+    const result = {
+      status: 200,
+      desc: 'successful request',
+    };
+    res.status(200).json(result);
+  } catch (error) {
+    const result = {
+      status: 500,
+      error: error.message,
+    };
+    console.log(error.message);
+    res.status(200).json(result);
+  }
+};
+
+exports.allow = async (req, res) => {
+  const {
+    idx: id,
+  } = req.params;
+  const { admin } = req.decoded;
+  console.log(id);
+  try {
+    const post = await waitPost.findOne({ idx: id });
+    if (!post || post.isChange === true) {
+      const result = {
+        status: 404,
+        desc: '해당 idx의 대기 글이 없어요',
+      };
+      res.status(200).json(result);
+      return;
+    }
+
+    const lastPost = await allowPost.findOne().sort({ idx: -1 }).limit(1);
+    let idx;
+    // eslint-disable-next-line no-unused-expressions
+    if (lastPost === null) {
+      idx = 1;
+    } else {
+      console.log(lastPost);
+      idx = lastPost.idx + 1;
+    }
+    const {
+      content,
+      writeDate,
+      type,
+      writerName,
+      writerPicture,
+      writerUrl,
+      imgs,
+    } = post;
+    let posting = `#대소고_${idx}번째_이야기 \n${writeDate.toLocaleString()}\n\n\n${content}`;
+    if (type) {
+      posting += `\n\n\n\n${writerName}님(${writerUrl}) 제보`;
+    } else {
+      posting += '\n\n\n\n 익명 제보';
+    }
+    if (imgs.length) {
+      const fb = await facebook.uploadWithImg(imgs, posting);
+      if (fb.type === 'error') {
+        const result = {
+          status: 500,
+          error: fb.error,
+        };
+        res.status(200).json(result);
+        return;
+      }
+    } else {
+      const fb = await facebook.uploadWithoutImg(posting);
+      if (fb.type === 'error') {
+        const result = {
+          status: 500,
+          error: fb.error,
+        };
+        res.status(200).json(result);
+        return;
+      }
+    }
+    await allowPost.create({
+      idx,
+      content,
+      admin,
+      imgs,
+      writeDate,
+      type,
+      writerName,
+      writerPicture,
+      writerUrl,
+    });
+    await waitPost.updateOne({ idx: id }, { $set: { isChange: true } });
     const result = {
       status: 200,
       desc: 'successful request',

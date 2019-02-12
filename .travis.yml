@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+  - "10.14"
+before_install:
+  - npm install -g yarn
+  - cd backend
+branches:
+  only:
+    - master
+notifications:
+  email:
+    recipients:
+      - i.love.my.cute.code@gmail.com

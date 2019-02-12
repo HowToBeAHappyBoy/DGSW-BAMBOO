@@ -4,8 +4,7 @@ exports.uploadImg = async (req, res) => {
     imgs.push(e.location);
   });
   const result = {
-    status: 200,
-    desc: 'success',
+    message: 'success',
     imgs,
   };
   res.status(200).json(result);

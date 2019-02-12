@@ -28,19 +28,17 @@ exports.count = async (req, res) => {
         });
         break;
       default:
-        res.status(200).json({
-          stats: 401,
-          desc: '타입이 잘못됐어요',
+        res.status(400).json({
+          message: '타입이 잘못됐어요',
         });
         break;
     }
   } catch (error) {
     const result = {
-      status: 500,
-      error: error.message,
+      message: '서버 에러네요 괜찮아요 원숭이들이 금방 고칠거에요',
     };
     console.log(error.message);
-    res.status(200).json(result);
+    res.status(500).json(result);
   }
 };
 exports.reject = async (req, res) => {
@@ -55,10 +53,9 @@ exports.reject = async (req, res) => {
     const post = await waitPost.findOne({ idx });
     if (!post || post.isChange === true) {
       const result = {
-        status: 404,
-        desc: '해당 idx의 대기 글이 없어요',
+        message: '해당 idx의 대기 글이 없어요',
       };
-      res.status(200).json(result);
+      res.status(404).json(result);
       return;
     }
     const {
@@ -85,17 +82,15 @@ exports.reject = async (req, res) => {
     });
     await waitPost.updateOne({ idx }, { $set: { isChange: true } });
     const result = {
-      status: 200,
-      desc: 'successful request',
+      message: '거절 성공해써요',
     };
     res.status(200).json(result);
   } catch (error) {
     const result = {
-      status: 500,
-      error: error.message,
+      message: '서버 에러네요 괜찮아요 원숭이들이 금방 고칠거에요',
     };
     console.log(error.message);
-    res.status(200).json(result);
+    res.status(500).json(result);
   }
 };
 
@@ -109,10 +104,9 @@ exports.allow = async (req, res) => {
     const post = await waitPost.findOne({ idx: id });
     if (!post || post.isChange === true) {
       const result = {
-        status: 404,
-        desc: '해당 idx의 대기 글이 없어요',
+        message: '해당 idx의 대기 글이 없어요',
       };
-      res.status(200).json(result);
+      res.status(404).json(result);
       return;
     }
 
@@ -144,20 +138,20 @@ exports.allow = async (req, res) => {
       const fb = await facebook.uploadWithImg(imgs, posting);
       if (fb.type === 'error') {
         const result = {
-          status: 500,
-          error: fb.error,
+          message: '서버 에러네요 괜찮아요 원숭이들이 금방 고칠거에요',
         };
-        res.status(200).json(result);
+        console.log(fb.error);
+        res.status(500).json(result);
         return;
       }
     } else {
       const fb = await facebook.uploadWithoutImg(posting);
       if (fb.type === 'error') {
         const result = {
-          status: 500,
-          error: fb.error,
+          message: '서버 에러네요 괜찮아요 원숭이들이 금방 고칠거에요',
         };
-        res.status(200).json(result);
+        console.log(fb.error);
+        res.status(500).json(result);
         return;
       }
     }
@@ -174,17 +168,15 @@ exports.allow = async (req, res) => {
     });
     await waitPost.updateOne({ idx: id }, { $set: { isChange: true } });
     const result = {
-      status: 200,
-      desc: 'successful request',
+      message: '성공했어용',
     };
     res.status(200).json(result);
   } catch (error) {
     const result = {
-      status: 500,
-      error: error.message,
+      message: '서버 에러네요 괜찮아요 원숭이들이 금방 고칠거에요',
     };
     console.log(error.message);
-    res.status(200).json(result);
+    res.status(500).json(result);
   }
 };
 
@@ -235,18 +227,17 @@ exports.getPost = async (req, res) => {
         });
         break;
       default:
-        res.status(200).json({
-          stats: 401,
+        res.status(400).json({
+          stats: 400,
           desc: '타입이 잘못됐어요',
         });
         break;
     }
   } catch (error) {
     const result = {
-      status: 500,
-      error: error.message,
+      message: '서버 에러네요 괜찮아요 원숭이들이 금방 고칠거에요',
     };
     console.log(error.message);
-    res.status(200).json(result);
+    res.status(500).json(result);
   }
 };

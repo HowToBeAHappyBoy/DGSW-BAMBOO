@@ -8,23 +8,20 @@ exports.count = async (req, res) => {
     const count = await allowPost.find({}).count();
     if (count) {
       res.status(200).json({
-        status: 200,
+        message: '조회에 성공했어요',
         count,
       });
     } else {
-      res.status(200).json({
-        status: 404,
-        desc: '글이 없어요!',
+      res.status(404).json({
+        message: '글이 없어요',
       });
     }
   } catch (error) {
     const result = {
-      status: 500,
-      desc: 'unknown error 서지녁에게 문의할 것',
-      error: error.message,
+      message: '서버 에러네요 괜찮아요 원숭이들이 금방 고칠거에요',
     };
     console.log(error.message);
-    res.status(200).json(result);
+    res.status(500).json(result);
   }
 };
 
@@ -43,8 +40,7 @@ exports.sendPost = async (req, res) => {
     await waitPost.create(data);
     console.log(data);
     const result = {
-      status: 200,
-      desc: '성공',
+      message: '제보에 성공했어요',
     };
     res.status(200).json(result);
   } catch (error) {
@@ -65,22 +61,19 @@ exports.getPost = async (req, res) => {
     const post = await allowPost.find({}, { __v: false, _id: false }).sort({ idx: -1 }).limit(5).skip(parseInt(count, 10));
     if (post.length) {
       res.status(200).json({
-        status: 200,
-        desc: '오홍홍 좋아용',
+        message: '오홍홍 좋아용',
         post,
       });
     } else {
-      res.status(200).json({
-        status: 404,
-        desc: '글이 없어요',
+      res.status(404).json({
+        message: '글이 없어요',
       });
     }
   } catch (error) {
     const result = {
-      status: 500,
-      error: error.message,
+      message: '서버 에러네요 괜찮아요 원숭이들이 금방 고칠거에요',
     };
     console.log(error.message);
-    res.status(200).json(result);
+    res.status(500).json(result);
   }
 };

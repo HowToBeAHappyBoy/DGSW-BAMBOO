@@ -61,4 +61,5 @@ typings/
 .next
 
 backend/package-lock.json
+backend/yarn.lock
 backend/src/config

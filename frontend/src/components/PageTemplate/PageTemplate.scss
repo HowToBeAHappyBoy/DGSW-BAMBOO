@@ -1,0 +1,10 @@
+.page-template{
+    width: 100vh;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+.children{
+    display: flex;
+    flex: 7;
+}

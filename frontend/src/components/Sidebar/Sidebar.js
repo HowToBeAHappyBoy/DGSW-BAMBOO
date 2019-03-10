@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Sidebar.scss';
 import classNames from 'classnames/bind';
 import { FaRegNewspaper, FaPencilAlt, FaGoogle, FaSchool, FaCloudDownloadAlt, FaFacebook } from "react-icons/fa";
-import { MdBugReport, MdMailOutline } from "react-icons/md";
+import { MdBugReport } from "react-icons/md";
 import { NavLink } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
@@ -24,27 +24,11 @@ const Sidebar = () => {
                                 </p>
                         </div>
                     </NavLink>
-                    <NavLink exact to="/tipoff" activeClassName={cx('active')}>
+                    <NavLink exact to="/report" activeClassName={cx('active')}>
                         <div className={cx('menu-content')}>
                             <FaPencilAlt size={25} className={cx('menu-icon')}/>
                                 <p className={cx('menu-item')}>
                                     제보하기
-                                </p>
-                        </div>
-                    </NavLink>
-                    <NavLink to="/report" activeClassName={cx('active')}>
-                        <div className={cx('menu-content')}>
-                            <MdBugReport size={25} className={cx('menu-icon')}/>
-                                <p className={cx('menu-item')}>
-                                    버그제보
-                                </p>
-                        </div>
-                    </NavLink>
-                    <NavLink to="/suggest" activeClassName={cx('active')}>
-                        <div className={cx('menu-content')}>
-                            <MdMailOutline size={25} className={cx('menu-icon')}/>
-                                <p className={cx('menu-item')}>
-                                    건의사항
                                 </p>
                         </div>
                     </NavLink>
@@ -75,6 +59,14 @@ const Sidebar = () => {
                         <div className={cx('menu-content')}>
                             <FaFacebook size={25} className={cx('menu-icon')}/>
                             <p className={cx('menu-item')}>학교 페이스북</p>
+                        </div>
+                    </a>
+                    <a href="https://github.com/seojeenyeok/DGSW-BAMBOO/issues" target="_blank" rel="noopener noreferrer">
+                        <div className={cx('menu-content')}>
+                            <MdBugReport size={25} className={cx('menu-icon')}/>
+                                <p className={cx('menu-item')}>
+                                    버그제보
+                                </p>
                         </div>
                     </a>
                 </div>

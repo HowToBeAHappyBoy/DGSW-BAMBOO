@@ -1,10 +1,12 @@
 .page-template{
-    width: 100vh;
     height: 100vh;
     display: flex;
     flex-direction: row;
+    overflow: hidden;
 }
 .children{
     display: flex;
+    flex-direction: column;
     flex: 7;
+    overflow-y: scroll;
 }

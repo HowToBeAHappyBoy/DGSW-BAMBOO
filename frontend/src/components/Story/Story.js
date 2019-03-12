@@ -22,7 +22,7 @@ const Story = ({ story }) => {
                 <div className={cx('footer-profile')}>
                     <img src={story.type ? story.writerPicture : PANDA} alt="제보자 프로필 사진"/>
                     <a href={story.writerUrl} target="_blank" rel="noopener noreferrer">
-                        <p className={cx('profile-name')}>{story.type ? `${story.writerName} 님` : "익명의 판다" } 제보</p>
+                        <p className={cx('profile-name', { 'profile-name-underline': story.type })}>{story.type ? `${story.writerName} 님` : "익명의 판다" } 제보</p>
                     </a>
                 </div>
            </div>

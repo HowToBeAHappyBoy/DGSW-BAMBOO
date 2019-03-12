@@ -8,7 +8,7 @@ class StoryList extends Component {
             <>
             {
                 storyList.map(e => {
-                    return <Story story={e}/>
+                    return <Story story={e} key={e.idx}/>
                 })
             }
             </>

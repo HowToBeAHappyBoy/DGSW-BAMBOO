@@ -1,0 +1,52 @@
+.story{
+    display: block;
+    border-radius: 10px;
+    padding: 30px 50px;
+    margin: 50px auto;
+    width: 1000px;
+    height: auto;
+    background-color: #FFFFFF;
+    border: 1px solid #EBEBEB;
+    .story-header{
+        text-align: left;
+        .header-title{
+            font-size: 20px;
+            color: #454545;
+            margin-bottom: 12px;
+        }
+        .header-date{
+            font-size: 14px;
+            color: #454545;
+            opacity: .44;
+            margin-top: 0;
+        }
+    }
+    .story-body{
+        margin: 25px 0;
+        .body-content{
+            font-size: 15px;
+            color: #555555;
+        }
+        .body-image{
+            border: 1px solid black;
+        }
+    }
+    .story-footer{
+        display: flex;
+        flex-direction: row;
+        .footer-profile{
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            .profile-name{
+                margin-left: 12px;
+                font-size: 15px;
+            }
+            img{
+                width: 3em;
+                height: 3em;
+                border-radius: 50%;
+            }
+        }
+    }
+}

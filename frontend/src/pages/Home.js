@@ -1,13 +1,12 @@
 import React from 'react';
 import PageTemplate from 'components/common/PageTemplate';
+import StoryContainer from 'containers/StoryContainer';
 
 const Home = () => {
     return (
         <>
             <PageTemplate>
-                <div>
-                    안녕
-                </div>
+                    <StoryContainer/>
             </PageTemplate>
         </>
     );

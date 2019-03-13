@@ -26,7 +26,7 @@
 - react
 - react-router
 - MobX
-- 💅 Styled-components 💅
+- Sass
 
 ### Server
 
@@ -37,6 +37,7 @@
 #### AWS
 - EC2
 - S3
+- CloudFront
 
 ### TMI
 

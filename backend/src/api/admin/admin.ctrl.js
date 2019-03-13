@@ -12,7 +12,11 @@ exports.count = async (req, res) => {
       case '0':
         res.status(200).json({
           stats: 200,
-          count: await waitPost.find({}).count(),
+          count: await waitPost
+            .find({ isChange: false }, {
+              __v: false,
+              _id: false,
+            }).count(),
         });
         break;
       case '1':

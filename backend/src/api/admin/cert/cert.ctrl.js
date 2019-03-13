@@ -37,6 +37,13 @@ exports.signin = async (req, res) => {
   } = req.body;
   try {
     const admin = await Admin.findById(id);
+    if (!admin) {
+      const result = {
+        message: '로그인 실패',
+      };
+      res.status(400).json(result);
+      return;
+    }
     if (admin.checkPassword(pw)) {
       const token = await admin.urgentToken();
       const result = {

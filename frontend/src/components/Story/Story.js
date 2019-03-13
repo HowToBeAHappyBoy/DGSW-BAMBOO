@@ -4,6 +4,7 @@ import classNames from 'classnames/bind';
 import {
     PANDA
 } from 'config/config.json'
+import ImageViewer from 'components/ImageViewer';
 
 const cx = classNames.bind(styles);
 
@@ -17,6 +18,7 @@ const Story = ({ story }) => {
            </div>
            <div className={cx('story-body')}>
                 <p className={cx('body-content')}>{story.content}</p>
+                { story.imgs.length !== 0 && <ImageViewer images={story.imgs}/> }
            </div>
            <div className={cx('story-footer')}>
                 <div className={cx('footer-profile')}>

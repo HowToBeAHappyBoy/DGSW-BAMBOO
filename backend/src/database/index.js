@@ -3,6 +3,7 @@ const {
   dbUrl,
   USER,
   PASS,
+  AUTH,
 } = require('config/serverconfig.json');
 
 module.exports = () => {
@@ -12,6 +13,7 @@ module.exports = () => {
     useNewUrlParser: true,
     user: USER,
     pass: PASS,
+    authSource: AUTH,
   });
   mongoose.connection.on('error', console.error.bind(console, 'mongoose connection error.'));
   mongoose.connection.on('open', () => {

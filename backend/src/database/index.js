@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const {
   dbUrl,
+  USER,
+  PASS,
 } = require('config/serverconfig.json');
 
 module.exports = () => {
@@ -8,6 +10,8 @@ module.exports = () => {
   mongoose.connect(dbUrl, {
     useCreateIndex: true,
     useNewUrlParser: true,
+    user: USER,
+    pass: PASS,
   });
   mongoose.connection.on('error', console.error.bind(console, 'mongoose connection error.'));
   mongoose.connection.on('open', () => {

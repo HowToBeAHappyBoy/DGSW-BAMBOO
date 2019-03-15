@@ -1,0 +1,82 @@
+@import 'utils';
+
+.report-container{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    overflow:hidden;
+    margin-left: 350px;
+}
+.report-content{
+    display: block;
+    border-radius: 10px;
+    padding: 30px 50px;
+    margin: 50px auto;
+    width: 1000px;
+    height: auto;
+    background-color: #FFFFFF;
+    border: 1px solid #EBEBEB;
+    user-select: none;
+    .report-header{
+        text-align: center;
+        .header-title{
+            font-size: 20px;
+            color: #454545;
+            margin-bottom: 12px;
+        }
+    }
+    .report-body{
+        margin: 25px 0;
+        .body-textarea{
+            font-size: 18px;
+            padding: 20px;
+            font-family: 'NanumSquare', sans-serif;
+            color: #555555;
+            line-height: 25px;
+            width: 100%;
+            border: 1px solid #EBEBEB;
+            resize: none;
+            height: 500px;
+            outline: none;
+        }
+    }
+    .report-footer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .footer-profile{
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            align-items: center;
+            width: 250px;
+            .profile-name{
+                margin-left: 12px;
+                font-size: 15px;
+            }
+            .profile-name-underline{
+                padding-bottom: 5px;
+                border-bottom: 1px solid grey;
+            }
+            img{
+                width: 3em;
+                height: 3em;
+                border-radius: 50%;
+            }
+        }
+        .footer-buttons{
+            display: flex;
+            width: auto;
+            align-items: center;
+            justify-content: flex-end;
+            .button-content {
+                font-size: 16px;
+                font-weight: 400;
+                color: white;
+                text-align: center;
+            }
+        }
+        .footer-notice{
+        }
+    }
+}

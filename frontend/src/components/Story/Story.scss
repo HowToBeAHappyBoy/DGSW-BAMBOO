@@ -7,6 +7,7 @@
     height: auto;
     background-color: #FFFFFF;
     border: 1px solid #EBEBEB;
+    user-select: none;
     .story-header{
         text-align: left;
         .header-title{
@@ -27,6 +28,7 @@
             font-size: 15px;
             color: #555555;
             line-height: 25px;
+            user-select: text;
         }
         .body-image{
             border: 1px solid black;

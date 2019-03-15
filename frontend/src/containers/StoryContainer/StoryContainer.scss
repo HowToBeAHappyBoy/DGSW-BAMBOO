@@ -1,3 +1,8 @@
 .story-container{
-    height: 100vh;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    overflow:hidden;
+    margin: 50px 0;
+    margin-left: 350px;
 }

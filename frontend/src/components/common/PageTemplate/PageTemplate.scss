@@ -1,13 +1,4 @@
 .page-template{
-    height: 100vh;
     display: flex;
     flex-direction: row;
-    overflow: hidden;
-}
-.children{
-    background-color: #F6F6F9;
-    display: flex;
-    flex-direction: column;
-    flex: 7;
-    overflow-y: scroll;
 }

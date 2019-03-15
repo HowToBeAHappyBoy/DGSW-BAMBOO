@@ -9,9 +9,7 @@ const PageTemplate = ({children}) => {
     return (
         <div className={cx('page-template')}>
             <Sidebar/>
-            <div className={cx('children')}>
-                {children}
-            </div>
+            {children}
         </div>
     );
 };

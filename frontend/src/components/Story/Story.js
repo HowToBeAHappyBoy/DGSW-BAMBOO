@@ -13,7 +13,7 @@ const Story = ({ story }) => {
     return (
         <div className={cx('story')}>
            <div className={cx('story-header')}>
-                <p className={cx('header-title')}>{story.idx}번째 이야기</p>
+                <h1 className={cx('header-title')}>{story.idx}번째 이야기</h1>
                 <p className={cx('header-date')}>{writeDate.toLocaleString()} 제보</p>
            </div>
            <div className={cx('story-body')}>

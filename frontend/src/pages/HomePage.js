@@ -2,7 +2,7 @@ import React from 'react';
 import PageTemplate from 'components/common/PageTemplate';
 import StoryContainer from 'containers/StoryContainer';
 
-const Home = () => {
+const HomePage = () => {
     return (
         <>
             <PageTemplate>
@@ -12,4 +12,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default HomePage;

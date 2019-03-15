@@ -1,2 +1,2 @@
-export { default as Home } from './Home';
-export { default as Report } from './Report';
+export { default as HomePage } from './HomePage';
+export { default as ReportPage } from './ReportPage';

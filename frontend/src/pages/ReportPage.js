@@ -1,16 +1,15 @@
 import React from 'react';
 import PageTemplate from 'components/common/PageTemplate';
+import Report from 'components/Report';
 
-const Report = () => {
+const ReportPage = () => {
     return (
         <>
             <PageTemplate>
-                <div>
-                    리포트
-                </div>
+                <Report/>
             </PageTemplate>
         </>
     );
 };
 
-export default Report;
+export default ReportPage;

@@ -4,74 +4,69 @@ import classNames from 'classnames/bind';
 import { FaRegNewspaper, FaPencilAlt, FaGoogle, FaSchool, FaCloudDownloadAlt, FaFacebook } from "react-icons/fa";
 import { MdBugReport } from "react-icons/md";
 import { NavLink } from 'react-router-dom';
+import { LOGO } from 'config/config.json';
 
 const cx = classNames.bind(styles);
 
 const Sidebar = () => {
     return (
-        <div className={cx('side-bar')}>
-            <div className={cx('side-bar-items')}>
-                <img src="https://scontent-icn1-1.xx.fbcdn.net/v/t1.0-9/28377543_1885163511795293_5158548161583601324_n.jpg?_nc_cat=104&_nc_ht=scontent-icn1-1.xx&oh=bd01fa53b90f854e6a651cb62aa150f3&oe=5CE14532" alt="logo"/>
-                <div className={cx('menu')}>
-                    <p className={cx('menu-name')}>
-                        Menu
-                    </p>
-                    <NavLink exact to="/" activeClassName={cx('active')}>
-                        <div className={cx('menu-content')}>
-                            <FaRegNewspaper size={25} className={cx('menu-icon')}/>
-                                <p className={cx('menu-item')}>
-                                    뉴스피드
-                                </p>
-                        </div>
-                    </NavLink>
-                    <NavLink exact to="/report" activeClassName={cx('active')}>
-                        <div className={cx('menu-content')}>
-                            <FaPencilAlt size={25} className={cx('menu-icon')}/>
-                                <p className={cx('menu-item')}>
-                                    제보하기
-                                </p>
-                        </div>
-                    </NavLink>
+        <nav className={cx('side-bar-container')}>
+            <div className={cx('side-bar')}>
+                <div className={cx('side-bar-logo')}>
+                    <img src={LOGO} alt="logo" className={cx('logo-img')}/>
                 </div>
-                <div className={cx('menu')}>
-                    <p className={cx('menu-name')}>
-                        ShortCuts
-                    </p>
-                    <a href="https://classroom.google.com" target="_blank" rel="noopener noreferrer">
-                        <div className={cx('menu-content')}>
-                            <FaGoogle size={25} className={cx('menu-icon')}/>
-                            <p className={cx('menu-item')}>구글 클래스룸</p>
-                        </div>
-                    </a>
-                    <a href="http://www.dgsw.hs.kr" target="_blank" rel="noopener noreferrer">
-                        <div className={cx('menu-content')}>
-                            <FaSchool size={25} className={cx('menu-icon')}/>
-                            <p className={cx('menu-item')}>학교 홈페이지</p>
-                        </div>
-                    </a>
-                    <a href="http://10.64.160.114:5000" target="_blank" rel="noopener noreferrer">
-                        <div className={cx('menu-content')}>
-                            <FaCloudDownloadAlt size={25} className={cx('menu-icon')}/>
-                            <p className={cx('menu-item')}>학교 나스</p>
-                        </div>
-                    </a>
-                    <a href="https://www.facebook.com/dgsw.hs.kr" target="_blank" rel="noopener noreferrer">
-                        <div className={cx('menu-content')}>
-                            <FaFacebook size={25} className={cx('menu-icon')}/>
-                            <p className={cx('menu-item')}>학교 페이스북</p>
-                        </div>
-                    </a>
-                    <a href="https://github.com/seojeenyeok/DGSW-BAMBOO/issues" target="_blank" rel="noopener noreferrer">
-                        <div className={cx('menu-content')}>
-                            <MdBugReport size={25} className={cx('menu-icon')}/>
-                                <p className={cx('menu-item')}>
-                                    버그제보
-                                </p>
-                        </div>
-                    </a>
+                <div className={cx('side-bar-items')}>
+                    <ul className={cx('side-bar-list')}>
+                        <h4 className={cx('list-title')}>Menu</h4>
+                        <NavLink exact to="/" activeClassName={cx('active')}>
+                            <li className={cx('list-menu')}>
+                                <FaRegNewspaper size={25} className={cx('menu-icon')}/>
+                                <p className={cx('menu-name')}>뉴스피드</p>
+                            </li>
+                        </NavLink>
+                        <NavLink exact to="/report" activeClassName={cx('active')}>
+                            <li className={cx('list-menu')}>
+                                <FaPencilAlt size={25} className={cx('menu-icon')}/>
+                                <p className={cx('menu-name')}>제보하기</p>
+                            </li>
+                        </NavLink>
+                    </ul>
+                    <ul className={cx('side-bar-list')}>
+                        <h4 className={cx('list-title')}>ShortCuts</h4>
+                        <a href="https://classroom.google.com" target="_blank" rel="noopener noreferrer">
+                            <li className={cx('list-menu')}>
+                                <FaGoogle size={25} className={cx('menu-icon')}/>
+                                <p className={cx('menu-name')}>구글 클래스룸</p>
+                            </li>
+                        </a>
+                        <a href="http://www.dgsw.hs.kr" target="_blank" rel="noopener noreferrer">
+                            <li className={cx('list-menu')}>
+                                <FaSchool size={25} className={cx('menu-icon')}/>
+                                <p className={cx('menu-name')}>학교 홈페이지</p>
+                            </li>
+                        </a>
+                        <a href="http://10.64.160.114:5000" target="_blank" rel="noopener noreferrer">
+                            <li className={cx('list-menu')}>
+                                <FaCloudDownloadAlt size={25} className={cx('menu-icon')}/>
+                                <p className={cx('menu-name')}>학교 NAS</p>
+                            </li>
+                        </a>
+                        <a href="https://www.facebook.com/dgsw.hs.kr" target="_blank" rel="noopener noreferrer">
+                            <li className={cx('list-menu')}>
+                                <FaGoogle size={25} className={cx('menu-icon')}/>
+                                <p className={cx('menu-name')}>학교 페이스북</p>
+                            </li>
+                        </a>
+                        <a href="https://github.com/seojeenyeok/DGSW-BAMBOO/issues" target="_blank" rel="noopener noreferrer">
+                            <li className={cx('list-menu')}>
+                                <MdBugReport size={25} className={cx('menu-icon')}/>
+                                <p className={cx('menu-name')}>버그 제보</p>
+                            </li>
+                        </a>
+                    </ul>
                 </div>
             </div>
-        </div>
+        </nav>
     );
 }
 

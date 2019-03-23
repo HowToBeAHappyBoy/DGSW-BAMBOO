@@ -1,6 +1,7 @@
 const allowPost = require('database/models/allowPost');
 const waitPost = require('database/models/waitPost');
 const { camelKeys } = require('change-object-case');
+const { push } = require('middlewares/pushbullet');
 
 
 exports.count = async (req, res) => {
@@ -42,6 +43,7 @@ exports.sendPost = async (req, res) => {
     const result = {
       message: '제보에 성공했어요',
     };
+    push();
     res.status(200).json(result);
   } catch (error) {
     const result = {

@@ -20,11 +20,9 @@ class StoryContainer extends Component {
     handleScroll = () => {
         const { innerHeight } = window;
         const { scrollHeight } = document.body;
-        // IE에서는 document.documentElement 를 사용.
         const scrollTop =
           (document.documentElement && document.documentElement.scrollTop) ||
           document.body.scrollTop;
-        // 스크롤링 했을때, 브라우저의 가장 밑에서 100정도 높이가 남았을때에 실행하기위함.
         if (scrollHeight - innerHeight - scrollTop < 10) {
           console.log("Almost Bottom Of This Browser");
           this.props.store.story.getMoreStory();

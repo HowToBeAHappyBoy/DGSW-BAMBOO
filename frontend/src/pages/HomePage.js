@@ -3,13 +3,13 @@ import PageTemplate from 'components/common/PageTemplate';
 import StoryContainer from 'containers/StoryContainer';
 
 const HomePage = () => {
-    return (
-        <>
-            <PageTemplate>
-                    <StoryContainer/>
-            </PageTemplate>
-        </>
-    );
+  return (
+    <>
+      <PageTemplate>
+        <StoryContainer />
+      </PageTemplate>
+    </>
+  );
 };
 
 export default HomePage;

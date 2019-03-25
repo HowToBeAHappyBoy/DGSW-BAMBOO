@@ -1,8 +1,9 @@
-.story-container{
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    overflow:hidden;
-    margin: 50px 0;
-    margin-left: 350px;
+.story-container {
+  display: flex;
+  flex: 1;
+  flex-grow: 1;
+  flex-direction: column;
+  overflow: auto;
+  height: 100%;
+  margin-left: 350px;
 }

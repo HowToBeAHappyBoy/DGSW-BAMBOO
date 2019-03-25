@@ -1,51 +1,56 @@
-.side-bar-container{
-    position: fixed;
-    height: 100vh;
-    width: 350px;
-    background-color: #F2F2F5;
-    box-shadow: -45px 0 100px black;
-    z-index: 1;
-    .side-bar{
-        margin: auto;
-        margin-top: 50px;
-        width: 210px;
-        user-select: none;
+.side-bar-container {
+  position: fixed;
+  display: flex;
+  flex: none;
+  height: 100vh;
+  width: 350px;
+  background-color: #f2f2f5;
+  box-shadow: -70px 0 100px black;
+  z-index: 1;
+  .side-bar {
+    margin: auto;
+    margin-top: 50px;
+    width: 210px;
+    user-select: none;
+  }
+  .side-bar-logo {
+    .logo-img {
+      width: 70px;
+      height: 70px;
     }
-    .side-bar-logo{
-        .logo-img{
-            width: 70px;
-            height: 70px;
+  }
+  .side-bar-items {
+    width: 210px;
+    margin: auto;
+    user-select: none;
+    .side-bar-list {
+      margin-top: 50px;
+      padding: 0;
+      list-style-type: none;
+      .list-title {
+        font-size: 18px;
+        color: #454545;
+        font-weight: 800;
+      }
+      .list-menu {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        .menu-icon,
+        .menu-name {
+          color: black;
+          opacity: 0.7;
+          margin-right: 16px;
+          font-weight: 400;
         }
+      }
     }
-    .side-bar-items{
-        width: 210px;
-        margin: auto;
-        user-select: none;
-        .side-bar-list{
-            margin-top: 50px;
-            padding: 0;
-            list-style-type: none;
-            .list-title{
-                font-size: 18px;
-                color: #454545;
-                font-weight: 800;
-            }
-            .list-menu{
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                .menu-icon, .menu-name{
-                    color: #454545;
-                    opacity: .7;
-                    margin-right: 16px;
-                    font-weight: 800;
-                }
-            }
-        }
-    }
+  }
 }
-.active{
-    .menu-name, .menu-icon{
-        opacity: 1 !important;
-    }
+.active {
+  .menu-name,
+  .menu-icon {
+    opacity: 1 !important;
+    font-weight: 800 !important;
+  }
 }

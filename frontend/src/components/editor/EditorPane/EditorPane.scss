@@ -1,0 +1,39 @@
+@import 'utils';
+
+.editor-pane {
+  overflow: hidden;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  .code-editor {
+    flex: 1;
+    background: #263238;
+    display: flex;
+    flex-direction: column;
+    .editor-textarea {
+      flex: 9;
+      background-color: #263238;
+      max-width: 100%;
+      font-size: 16px;
+      padding: 30px;
+      font-family: 'NanumSquare', sans-serif;
+      color: #fff;
+      border: none;
+      resize: none;
+      outline: none;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+    .image-control {
+      font-size: 2em;
+      color: white;
+      text-align: right;
+      padding-right: 12px;
+    }
+    .editor-images {
+      border-top: 2px solid white;
+      width: auto;
+      flex: 1;
+    }
+  }
+}

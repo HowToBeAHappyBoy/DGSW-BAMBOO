@@ -1,16 +1,15 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { HomePage, ReportPage } from 'pages';
+import { HomePage, ReportPage, EditorPage } from 'pages';
 
 const App = () => {
-    return (
-        <div>
-            <Switch>
-                <Route exact path="/" component={HomePage}/>
-                <Route path="/report" component={ReportPage}/>
-            </Switch>
-        </div>
-    );
+  return (
+    <Switch>
+      <Route exact path="/" component={HomePage} />
+      <Route path="/report" component={ReportPage} />
+      <Route path="/edit" component={EditorPage} />
+    </Switch>
+  );
 };
 
 export default App;

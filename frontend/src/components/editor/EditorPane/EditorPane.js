@@ -48,7 +48,11 @@ class EditorPane extends Component {
         <div className={cx('code-editor')}>
           <textarea className={cx('editor-textarea')} />
           <div onClick={this.handleView} className={cx('image-control')}>
-            {this.state.showImages ? <FaChevronDown /> : <FaChevronUp />}
+            {this.state.showImages ? (
+              <FaChevronDown className={cx('control-btn')} />
+            ) : (
+              <FaChevronUp className={cx('control-btn')} />
+            )}
           </div>
           <div className={cx('editor-images')} style={{ display: view }}>
             <ImageUploader

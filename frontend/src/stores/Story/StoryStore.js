@@ -1,4 +1,4 @@
-import { observable, action } from 'mobx';
+import { observable } from 'mobx';
 import { asyncAction } from 'mobx-utils';
 import StoryRepository from './StoryRepository';
 import { autobind } from 'core-decorators';

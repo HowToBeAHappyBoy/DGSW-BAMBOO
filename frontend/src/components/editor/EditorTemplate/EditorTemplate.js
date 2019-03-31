@@ -43,6 +43,7 @@ class EditorTemplate extends Component {
     });
   };
   handleLogin = response => {
+    if (!response.id) return;
     this.setState({
       writerName: response.name,
       writerPicture: response.picture.data.url,

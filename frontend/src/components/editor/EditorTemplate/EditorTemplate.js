@@ -8,6 +8,7 @@ import Swal from 'sweetalert2';
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
 import { SERVER } from 'config/config.json';
+import FullscreenLoader from 'components/common/FullScreenLoader';
 
 const cx = classNames.bind(styles);
 
@@ -25,6 +26,7 @@ class EditorTemplate extends Component {
       writeDate: new Date(),
       allowDate: new Date(),
       isLogin: false,
+      isLoad: false,
     };
   }
   handleChangeType = type => {
@@ -91,9 +93,15 @@ class EditorTemplate extends Component {
         content: this.state.content,
       };
     }
+    this.setState({
+      isLoad: true,
+    });
     await axios
       .post(`${SERVER}/user/post`, data)
       .then(async res => {
+        this.setState({
+          isLoad: false,
+        });
         await Swal.fire({
           type: 'success',
           title: '제보에 성공했습니다',
@@ -102,6 +110,9 @@ class EditorTemplate extends Component {
         this.props.history.push('/');
       })
       .catch(e => {
+        this.setState({
+          isLoad: false,
+        });
         Swal.fire({
           type: 'error',
           title: '제보 오류',
@@ -130,28 +141,31 @@ class EditorTemplate extends Component {
     };
     const { content, images } = this.state;
     return (
-      <div className={cx('editor-template')}>
-        <EditorHeader
-          data={headerData}
-          onLogin={this.handleLogin}
-          onTypeChange={this.handleChangeType}
-          onSubmit={this.handleSubmit}
-        />
-        <div className={cx('panes')}>
-          <div className={cx('pane', 'editor')}>
-            <EditorPane
-              onUpload={this.handleUpload}
-              onRemove={this.handleRemove}
-              onChange={this.handleChange}
-              content={content}
-              images={images}
-            />
-          </div>
-          <div className={cx('pane', 'preview')}>
-            <PreviewPane story={story} width={'800px'} />
+      <>
+        {this.state.isLoad && <FullscreenLoader />}
+        <div className={cx('editor-template')}>
+          <EditorHeader
+            data={headerData}
+            onLogin={this.handleLogin}
+            onTypeChange={this.handleChangeType}
+            onSubmit={this.handleSubmit}
+          />
+          <div className={cx('panes')}>
+            <div className={cx('pane', 'editor')}>
+              <EditorPane
+                onUpload={this.handleUpload}
+                onRemove={this.handleRemove}
+                onChange={this.handleChange}
+                content={content}
+                images={images}
+              />
+            </div>
+            <div className={cx('pane', 'preview')}>
+              <PreviewPane story={story} width={'800px'} />
+            </div>
           </div>
         </div>
-      </div>
+      </>
     );
   }
 }

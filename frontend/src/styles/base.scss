@@ -1,11 +1,13 @@
 @import '~react-image-gallery/styles/scss/image-gallery.scss';
 
+html,
 body {
   margin: 0;
   box-sizing: border-box;
   @import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
   font-family: 'NanumSquare', sans-serif;
   background-color: #f6f6f9;
+  height: 100%;
 }
 
 * {

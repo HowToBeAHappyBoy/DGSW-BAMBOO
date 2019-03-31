@@ -1,59 +1,72 @@
-.story{
-    display: block;
-    border-radius: 10px;
-    padding: 30px 50px;
-    margin: 50px auto;
-    width: 1000px;
-    height: auto;
-    background-color: #FFFFFF;
-    border: 1px solid #EBEBEB;
-    user-select: none;
-    .story-header{
-        text-align: left;
-        .header-title{
-            font-size: 20px;
-            color: #454545;
-            margin-bottom: 12px;
-        }
-        .header-date{
-            font-size: 14px;
-            color: #454545;
-            opacity: .44;
-            margin-top: 0;
-        }
+.story {
+  display: block;
+  border-radius: 10px;
+  padding: 30px 50px;
+  margin: 50px auto;
+  width: auto;
+  min-width: 800px;
+  height: auto;
+  background-color: #ffffff;
+  border: 1px solid #ebebeb;
+  user-select: none;
+  .story-header {
+    text-align: left;
+    .header-title {
+      font-size: 20px;
+      color: #454545;
+      margin-bottom: 12px;
     }
-    .story-body{
-        margin: 25px 0;
-        .body-content{
-            font-size: 15px;
-            color: #555555;
-            line-height: 25px;
-            user-select: text;
-        }
-        .body-image{
-            border: 1px solid black;
-        }
+  }
+  .story-body {
+    margin: 25px 0;
+    .body-content {
+      font-size: 15px;
+      color: #555555;
+      line-height: 25px;
+      user-select: text;
+      white-space: pre-wrap;
+      word-wrap: break-all;
+      @import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
+      font-family: 'NanumSquare', sans-serif;
     }
-    .story-footer{
-        display: flex;
-        flex-direction: row;
-        .footer-profile{
-            display: flex;
-            justify-content: center;
-            flex-direction: row;
-            .profile-name{
-                margin-left: 12px;
-                font-size: 15px;
-            }
-            .profile-name-underline{
-                padding-bottom: 5px;
-                border-bottom: 1px solid grey;
-            }
-            img{
-                width: 3em;
-                height: 3em;
-                border-radius: 50%;
-            }
-        }
+    .body-image {
+      border: 1px solid black;
     }
+  }
+  .story-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    .footer-profile {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      .profile-name {
+        margin-left: 12px;
+        font-size: 15px;
+      }
+      .profile-name-underline {
+        padding-bottom: 5px;
+        border-bottom: 1px solid grey;
+      }
+      img {
+        width: 3em;
+        height: 3em;
+        border-radius: 50%;
+      }
+    }
+    .footer-date {
+      display: flex;
+      flex-direction: column;
+      text-align: right;
+      p {
+        font-size: 16px;
+        color: #454545;
+        opacity: 0.44;
+        margin: 5px 0;
+      }
+    }
+  }
 }

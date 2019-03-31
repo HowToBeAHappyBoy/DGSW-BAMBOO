@@ -1,0 +1,15 @@
+@import 'utils';
+
+.editor-template {
+  .panes {
+    height: calc(100vh - 4rem);
+    display: flex;
+    position: relative;
+    .pane {
+      display: flex;
+      min-width: 0;
+      overflow: auto;
+      flex: 0.5 1;
+    }
+  }
+}

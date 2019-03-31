@@ -1,0 +1,102 @@
+@import 'utils';
+@import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
+
+.editor-header {
+  user-select: none;
+  background: #495057;
+  height: 4rem;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  .back {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .icon {
+      cursor: pointer;
+      color: #dadada;
+      font-size: 2rem;
+      &:hover {
+        color: white;
+      }
+    }
+  }
+  .buttons {
+    height: 45px;
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    button {
+      display: flex;
+      align-items: center;
+      outline: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.6em 1.2em;
+      font-size: 1em;
+      border-radius: 5px;
+    }
+    .login-button {
+      background: $oc-blue-6;
+      color: white;
+      margin-right: 16px;
+      span {
+        margin-left: 8px;
+        margin-top: 1px;
+      }
+      &:hover {
+        background: $oc-blue-8;
+      }
+    }
+    .send-button {
+      background: $oc-green-5;
+      color: white;
+      span {
+        font-family: 'NanumSquare', sans-serif;
+        font-weight: 600;
+        margin-left: 8px;
+        margin-bottom: 1px;
+      }
+      &:hover {
+        background: $oc-green-7;
+      }
+    }
+    .toggle {
+      display: flex;
+      align-items: center;
+      margin-right: 16px;
+      padding: 0.6em 1.2em;
+      border: 2px solid white;
+      border-radius: 5px;
+      span {
+        font-family: 'NanumSquare', sans-serif;
+        font-weight: 600;
+        margin-right: 10px;
+        color: white;
+        margin-bottom: 1px;
+      }
+    }
+  }
+  .profile {
+    height: auto;
+    padding: 0 1.2em;
+    border: 2px solid $oc-blue-5;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    margin: 0;
+    margin-right: 16px;
+    &-img {
+      width: 2em;
+      height: 2em;
+      border-radius: 50%;
+    }
+    &-name {
+      color: white;
+      margin-left: 12px;
+      font-size: 15px;
+    }
+  }
+}

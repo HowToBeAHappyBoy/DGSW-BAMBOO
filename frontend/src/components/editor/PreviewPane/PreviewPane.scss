@@ -1,0 +1,16 @@
+@import 'utils';
+.preview-pane {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+  font-size: 1.125rem;
+  .title {
+    user-select: none;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 400;
+  }
+}

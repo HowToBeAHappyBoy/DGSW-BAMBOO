@@ -1,4 +1,8 @@
-.page-template{
+.page-wrap {
+  display: flex;
+  height: 100%;
+  .page-template {
     display: flex;
-    flex-direction: row;
+    flex: 1;
+  }
 }

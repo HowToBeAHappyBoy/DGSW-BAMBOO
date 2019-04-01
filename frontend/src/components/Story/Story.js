@@ -9,14 +9,13 @@ const cx = classNames.bind(styles);
 const Story = ({ story, width }) => {
   const writeDate = new Date(story.writeDate);
   const allowDate = new Date(story.allowDate);
-  const content = story.content.replace('\r\n', '<br/>');
   return (
     <div className={cx('story')} style={{ maxWidth: width }}>
       <div className={cx('story-header')}>
         <h1 className={cx('header-title')}>{story.idx}번째 이야기</h1>
       </div>
       <div className={cx('story-body')}>
-        <pre className={cx('body-content')}>{content}</pre>
+        <pre className={cx('body-content')}>{story.content}</pre>
         {story.imgs.length !== 0 && <ImageViewer images={story.imgs} />}
       </div>
       <div className={cx('story-footer')}>

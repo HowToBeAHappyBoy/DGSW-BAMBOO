@@ -51,6 +51,16 @@ class EditorTemplate extends Component {
       isLogin: true,
     });
   };
+  handleLogout = () => {
+    if (!this.state.isLogin) return;
+    this.setState({
+      writerName: '',
+      writerPicture: '',
+      writerUrl: '',
+      isLogin: false,
+      type: 0,
+    });
+  };
   handleUpload = img => {
     this.setState({
       ...this.state,
@@ -150,6 +160,7 @@ class EditorTemplate extends Component {
             onLogin={this.handleLogin}
             onTypeChange={this.handleChangeType}
             onSubmit={this.handleSubmit}
+            onLogout={this.handleLogout}
           />
           <div className={cx('panes')}>
             <div className={cx('pane', 'editor')}>

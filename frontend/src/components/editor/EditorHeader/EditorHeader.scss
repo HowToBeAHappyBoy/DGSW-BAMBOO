@@ -97,5 +97,14 @@
       margin-left: 12px;
       font-size: 15px;
     }
+    &-logout {
+      margin-left: 3px;
+      font-size: 25px;
+      color: $oc-red-5;
+      cursor: pointer;
+      &:hover {
+        color: $oc-red-7;
+      }
+    }
   }
 }

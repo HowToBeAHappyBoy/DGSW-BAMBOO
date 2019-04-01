@@ -3,13 +3,21 @@ import styles from './EditorHeader.scss';
 import classNames from 'classnames/bind';
 import { MdKeyboardBackspace, MdSend } from 'react-icons/md';
 import { FaFacebookSquare } from 'react-icons/fa';
+import { GoX } from 'react-icons/go';
 import { withRouter } from 'react-router-dom';
 import ToggleButton from 'react-toggle-button';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
 
 const cx = classNames.bind(styles);
 
-const EditorHeader = ({ history, onLogin, onTypeChange, onSubmit, data }) => {
+const EditorHeader = ({
+  history,
+  onLogin,
+  onLogout,
+  onTypeChange,
+  onSubmit,
+  data,
+}) => {
   return (
     <div className={cx('editor-header')}>
       <div className={cx('back')}>
@@ -33,6 +41,7 @@ const EditorHeader = ({ history, onLogin, onTypeChange, onSubmit, data }) => {
               alt="제보자 사진"
             />
             <p className={cx('profile-name')}>{data.writerName}</p>
+            <GoX className={cx('profile-logout')} onClick={onLogout} />
           </div>
         ) : (
           <FacebookLogin

@@ -80,13 +80,6 @@ class EditorTemplate extends Component {
     });
   };
   handleSubmit = async () => {
-    if (this.state.content.replace(/^\s+|\s+$/g, '') === '') {
-      Swal.fire({
-        type: 'error',
-        title: '내용을 채워주세요',
-      });
-      return;
-    }
     let data = {};
     if (this.state.type) {
       data = {
@@ -131,6 +124,31 @@ class EditorTemplate extends Component {
         });
       });
   };
+  handleCheck = async () => {
+    if (this.state.content.replace(/^\s+|\s+$/g, '') === '') {
+      Swal.fire({
+        type: 'error',
+        title: '내용을 채워주세요',
+      });
+      return;
+    }
+    if (this.state.type) {
+      await Swal.fire({
+        title: '실명 제보됩니다',
+        text: '실명과 프로필 사진, 타임라인 링크를 포함한 상태로 게시됩니다.',
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#51cf66',
+        cancelButtonColor: '#d33',
+        confirmButtonText: '실명으로 제보',
+        cancelButtonText: '취소하기',
+      }).then(result => {
+        if (result.value) {
+          this.handleSubmit();
+        }
+      });
+    }
+  };
   render() {
     const story = {
       imgs: this.state.images,
@@ -159,7 +177,7 @@ class EditorTemplate extends Component {
             data={headerData}
             onLogin={this.handleLogin}
             onTypeChange={this.handleChangeType}
-            onSubmit={this.handleSubmit}
+            onSubmit={this.handleCheck}
             onLogout={this.handleLogout}
           />
           <div className={cx('panes')}>

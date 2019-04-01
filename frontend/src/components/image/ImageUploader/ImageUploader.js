@@ -15,6 +15,14 @@ const ImageUploader = ({ onUpload, images, onRemove }) => {
 
   const handleChange = async e => {
     const file = e.target.files[0];
+    if (file.size > 3 * 1024 * 1024) {
+      Swal.fire({
+        type: 'error',
+        title: '용량 초과',
+        text: '3MB 이하의 이미지만 업로드 가능합니다',
+      });
+      return;
+    }
     let type = file.name.split('.');
     type = type[type.length - 1].toLowerCase();
     console.log(type);
@@ -89,7 +97,12 @@ const ImageUploader = ({ onUpload, images, onRemove }) => {
             images.length !== 0 ? 'upload-button' : 'primary-upload-button',
           )}
         >
-          <input className={cx('blind')} type="file" onChange={handleChange} />
+          <input
+            className={cx('blind')}
+            type="file"
+            onChange={handleChange}
+            accept="image/jpeg, image/png, image/jpg"
+          />
           <p>{images.length !== 0 ? '+' : '이미지 업로드'}</p>
         </label>
       )}

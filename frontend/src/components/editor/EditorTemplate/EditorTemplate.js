@@ -147,6 +147,8 @@ class EditorTemplate extends Component {
           this.handleSubmit();
         }
       });
+    } else {
+      this.handleSubmit();
     }
   };
   render() {

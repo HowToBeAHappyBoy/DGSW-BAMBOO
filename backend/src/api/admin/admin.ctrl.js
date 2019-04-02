@@ -4,19 +4,21 @@ const waitPost = require('database/models/waitPost');
 const facebook = require('middlewares/facebook');
 
 exports.count = async (req, res) => {
-  const {
-    type,
-  } = req.params;
+  const { type } = req.params;
   try {
     switch (type) {
       case '0':
         res.status(200).json({
           stats: 200,
           count: await waitPost
-            .find({ isChange: false }, {
-              __v: false,
-              _id: false,
-            }).count(),
+            .find(
+              { isChange: false },
+              {
+                __v: false,
+                _id: false,
+              },
+            )
+            .count(),
         });
         break;
       case '1':
@@ -46,13 +48,8 @@ exports.count = async (req, res) => {
   }
 };
 exports.reject = async (req, res) => {
-  const {
-    idx,
-    reason,
-  } = req.body;
-  const {
-    admin,
-  } = req.decoded;
+  const { idx } = req.params;
+  const { admin } = req.decoded;
   try {
     const post = await waitPost.findOne({ idx });
     if (!post || post.isChange === true) {
@@ -80,7 +77,6 @@ exports.reject = async (req, res) => {
       writerPicture,
       writerUrl,
       type,
-      reason,
       admin,
       imgs,
     });
@@ -99,9 +95,7 @@ exports.reject = async (req, res) => {
 };
 
 exports.allow = async (req, res) => {
-  const {
-    idx: id,
-  } = req.params;
+  const { idx: id } = req.params;
   const { admin } = req.decoded;
   console.log(id);
   try {
@@ -114,7 +108,10 @@ exports.allow = async (req, res) => {
       return;
     }
 
-    const lastPost = await allowPost.findOne().sort({ idx: -1 }).limit(1);
+    const lastPost = await allowPost
+      .findOne()
+      .sort({ idx: -1 })
+      .limit(1);
     let idx;
     // eslint-disable-next-line no-unused-expressions
     if (lastPost === null) {
@@ -185,20 +182,20 @@ exports.allow = async (req, res) => {
 };
 
 exports.getPost = async (req, res) => {
-  const {
-    count,
-    type,
-  } = req.query;
+  const { count, type } = req.query;
   try {
     switch (type) {
       case '0':
         res.status(200).json({
           stats: 200,
           post: await waitPost
-            .find({ isChange: false }, {
-              __v: false,
-              _id: false,
-            })
+            .find(
+              { isChange: false },
+              {
+                __v: false,
+                _id: false,
+              },
+            )
             .sort({ idx: 1 })
             .limit(5)
             .skip(parseInt(count, 10)),
@@ -208,10 +205,13 @@ exports.getPost = async (req, res) => {
         res.status(200).json({
           stats: 200,
           post: await rejectPost
-            .find({}, {
-              __v: false,
-              _id: false,
-            })
+            .find(
+              {},
+              {
+                __v: false,
+                _id: false,
+              },
+            )
             .sort({ idx: -1 })
             .limit(5)
             .skip(parseInt(count, 10)),
@@ -221,10 +221,13 @@ exports.getPost = async (req, res) => {
         res.status(200).json({
           stats: 200,
           post: await allowPost
-            .find({}, {
-              __v: false,
-              _id: false,
-            })
+            .find(
+              {},
+              {
+                __v: false,
+                _id: false,
+              },
+            )
             .sort({ idx: -1 })
             .limit(5)
             .skip(parseInt(count, 10)),

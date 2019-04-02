@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "aws-sdk": "^2.395.0",
+    "axios": "^0.18.0",
     "body-parser": "^1.18.2",
     "change-object-case": "^0.2.0",
     "cookie-parser": "^1.4.3",

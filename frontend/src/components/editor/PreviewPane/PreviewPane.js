@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './PreviewPane.scss';
 import classNames from 'classnames/bind';
-import Story from 'components/Story';
+import Story from 'components/main/Story';
 
 const cx = classNames.bind(styles);
 

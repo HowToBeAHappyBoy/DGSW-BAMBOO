@@ -1,5 +1,5 @@
 import React from 'react';
-import Sidebar from 'components/Sidebar';
+import Sidebar from 'components/base/Sidebar';
 import styles from './PageTemplate.scss';
 import classNames from 'classnames/bind';
 

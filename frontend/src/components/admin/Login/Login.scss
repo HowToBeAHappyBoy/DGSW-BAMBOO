@@ -1,0 +1,84 @@
+@import 'utils';
+
+.login {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+  margin-left: 350px;
+  height: 100vh;
+  &-container {
+    box-shadow: 0px 10px 20px -9px rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1000px;
+    height: 600px;
+    background-color: white;
+    border-radius: 15px;
+    .login-form {
+      display: flex;
+      flex-direction: column;
+      width: 400px;
+      h1 {
+        text-align: center;
+        margin-bottom: 3rem;
+        font-weight: 700;
+      }
+      .form-input {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 1px solid gray;
+      }
+      input {
+        font-family: 'NanumSquare', sans-serif;
+        color: #5a5c5b;
+        font-size: 1em;
+        border: none;
+        outline: none;
+        padding: 1em;
+        padding-bottom: 12px;
+        flex: 1;
+        height: auto;
+        width: 100%;
+        font-size: 1.2em;
+        &::placeholder {
+          font-family: 'NanumSquare', sans-serif;
+          color: #858585;
+        }
+        &[type='password'] {
+          font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+      }
+      .form-input + .form-input {
+        margin: 25px 0;
+      }
+      .input-icon {
+        margin-top: 3px;
+        font-size: 1.2rem;
+        color: #5a5c5b;
+      }
+      button {
+        font-family: 'NanumSquare', sans-serif;
+        font-weight: 600;
+        margin-top: 1rem;
+        outline: none;
+        border: none;
+        font-size: 1.2rem;
+        color: white;
+        padding: 15px 10px;
+        border-radius: 10px;
+        align-self: center;
+        width: 50%;
+        cursor: pointer;
+        background-color: $oc-blue-5;
+        &:hover {
+          background-color: $oc-blue-6;
+        }
+      }
+    }
+  }
+}

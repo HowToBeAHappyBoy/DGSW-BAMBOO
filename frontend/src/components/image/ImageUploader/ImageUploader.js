@@ -15,11 +15,11 @@ const ImageUploader = ({ onUpload, images, onRemove }) => {
 
   const handleChange = async e => {
     const file = e.target.files[0];
-    if (file.size > 3 * 1024 * 1024) {
+    if (file.size > 4 * 1024 * 1024) {
       Swal.fire({
         type: 'error',
         title: '용량 초과',
-        text: '3MB 이하의 이미지만 업로드 가능합니다',
+        text: '4MB 이하의 이미지만 업로드 가능합니다',
       });
       return;
     }
@@ -31,6 +31,14 @@ const ImageUploader = ({ onUpload, images, onRemove }) => {
         type: 'error',
         title: '타입 에러',
         text: 'png, jpg, jpeg 형식의 이미지만 업로드 가능합니다',
+      });
+      return;
+    }
+    if (type === 'png' && file.size > 1024 * 1024) {
+      Swal.fire({
+        type: 'error',
+        title: '용량 초과',
+        text: 'png 파일의 용량은 1MB를 넘을 수 없습니다',
       });
       return;
     }

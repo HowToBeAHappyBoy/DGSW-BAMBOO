@@ -1,18 +1,22 @@
 import React from 'react';
-import styles from './Story.scss';
+import styles from './Card.scss';
 import classNames from 'classnames/bind';
 import { PANDA } from 'config/config.json';
 import ImageViewer from 'components/image/ImageViewer';
 
 const cx = classNames.bind(styles);
 
-const Story = ({ story, width, type }) => {
+const Card = ({ story, width, type, onAllow, onReject }) => {
   const writeDate = new Date(story.writeDate);
   const allowDate = new Date(story.allowDate);
   return (
-    <div className={cx('story')} style={{ maxWidth: width }}>
+    <div className={cx('story')} style={{ maxWidth: width, minWidth: width }}>
       <div className={cx('story-header')}>
-        <h1 className={cx('header-title')}>{story.idx}번째 이야기</h1>
+        <h1 className={cx('header-title')}>
+          {type === 'allow'
+            ? `${story.idx}번째 이야기`
+            : `${writeDate.toLocaleString()}`}
+        </h1>
       </div>
       <div className={cx('story-body')}>
         <pre className={cx('body-content')}>{story.content}</pre>
@@ -58,10 +62,22 @@ const Story = ({ story, width, type }) => {
             case 'wait':
               return (
                 <div className={cx('footer-buttons')}>
-                  <button className={cx('button', 'allow')}>
+                  <button
+                    className={cx('button', 'allow')}
+                    onClick={() => {
+                      onAllow(story.idx);
+                    }}
+                  >
                     <span>승인</span>
                   </button>
-                  <button className={cx('button', 'reject')}> 거절 </button>
+                  <button
+                    className={cx('button', 'reject')}
+                    onClick={() => {
+                      onReject(story.idx);
+                    }}
+                  >
+                    <span>거절</span>
+                  </button>
                 </div>
               );
             default:
@@ -73,4 +89,4 @@ const Story = ({ story, width, type }) => {
   );
 };
 
-export default Story;
+export default Card;

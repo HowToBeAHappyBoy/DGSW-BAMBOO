@@ -1,8 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-const {
-  secret,
-} = require('config/serverconfig.json');
+const { secret } = require('config/serverconfig.json');
 
 const certFunc = async (req, res, next) => {
   const token = req.headers.authorization;
@@ -14,27 +12,26 @@ const certFunc = async (req, res, next) => {
     res.status(401).json(result);
     return;
   }
-  const check = new Promise(
-    (resolve, reject) => {
-      jwt.verify(token, secret, (err, decoded) => {
-        if (err) reject(err);
-        resolve(decoded);
-      });
-    },
-  );
+  const check = new Promise((resolve, reject) => {
+    jwt.verify(token, secret, (err, decoded) => {
+      if (err) reject(err);
+      resolve(decoded);
+    });
+  });
 
   const onError = (error) => {
     const result = {
-      status: 403,
       desc: error.message,
     };
-    res.status(200).json(result);
+    res.status(403).json(result);
   };
 
-  check.then((decoded) => {
-    req.decoded = decoded;
-    next();
-  }).catch(onError);
+  check
+    .then((decoded) => {
+      req.decoded = decoded;
+      next();
+    })
+    .catch(onError);
 };
 
 module.exports = certFunc;

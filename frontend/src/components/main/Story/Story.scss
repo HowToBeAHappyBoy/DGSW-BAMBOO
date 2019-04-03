@@ -1,3 +1,5 @@
+@import 'utils';
+
 .story {
   display: block;
   border-radius: 10px;
@@ -66,6 +68,44 @@
         color: #454545;
         opacity: 0.44;
         margin: 5px 0;
+      }
+    }
+    .footer-buttons {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      .button {
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.6em 1.2em;
+        font-size: 1em;
+        border-radius: 5px;
+        width: 120px;
+        span {
+          font-family: 'NanumSquare', sans-serif;
+          font-weight: 600;
+        }
+      }
+      .allow {
+        background: $oc-blue-5;
+        &:hover {
+          background: $oc-blue-7;
+        }
+      }
+      .reject {
+        background-color: $oc-red-5;
+        &:hover {
+          background-color: $oc-red-7;
+        }
+      }
+      .button + .button {
+        margin: 0 12px;
       }
     }
   }

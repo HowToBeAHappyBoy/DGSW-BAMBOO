@@ -6,7 +6,7 @@ import ImageViewer from 'components/image/ImageViewer';
 
 const cx = classNames.bind(styles);
 
-const Story = ({ story, width }) => {
+const Story = ({ story, width, type }) => {
   const writeDate = new Date(story.writeDate);
   const allowDate = new Date(story.allowDate);
   return (
@@ -25,19 +25,49 @@ const Story = ({ story, width }) => {
             alt="제보자 프로필 사진"
           />
           {story.type ? (
-            <a href={story.writerUrl} target="_blank" rel="noopener noreferrer">
-              <p className={cx('profile-name', 'profile-name-underline')}>
-                {story.writerName}님 제보
-              </p>
-            </a>
+            story.writerUrl ? (
+              <a
+                href={story.writerUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <p className={cx('profile-name', 'profile-name-underline')}>
+                  {story.writerName}님 제보
+                </p>
+              </a>
+            ) : (
+              <p className={cx('profile-name')}>{story.writerName} 님 제보</p>
+            )
           ) : (
             <p className={cx('profile-name')}>익명의 판다 제보</p>
           )}
         </div>
-        <div className={cx('footer-date')}>
-          <p className={cx('write-date')}>{writeDate.toLocaleString()} 제보</p>
-          <p className={cx('allow-date')}>{allowDate.toLocaleString()} 승인</p>
-        </div>
+        {(() => {
+          switch (type) {
+            case 'allow':
+              return (
+                <div className={cx('footer-date')}>
+                  <p className={cx('write-date')}>
+                    {writeDate.toLocaleString()} 제보
+                  </p>
+                  <p className={cx('allow-date')}>
+                    {allowDate.toLocaleString()} 승인
+                  </p>
+                </div>
+              );
+            case 'wait':
+              return (
+                <div className={cx('footer-buttons')}>
+                  <button className={cx('button', 'allow')}>
+                    <span>승인</span>
+                  </button>
+                  <button className={cx('button', 'reject')}> 거절 </button>
+                </div>
+              );
+            default:
+              break;
+          }
+        })()}
       </div>
     </div>
   );

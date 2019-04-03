@@ -3,11 +3,11 @@ import Story from 'components/main/Story';
 
 class StoryList extends Component {
   render() {
-    const { storyList } = this.props;
+    const { list, type } = this.props;
     return (
       <>
-        {storyList.map(e => {
-          return <Story story={e} key={e.idx} width="1000px" />;
+        {list.map(e => {
+          return <Story story={e} key={e.idx} width="1000px" type={type} />;
         })}
       </>
     );

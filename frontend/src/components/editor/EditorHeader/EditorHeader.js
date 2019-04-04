@@ -7,6 +7,7 @@ import { GoX } from 'react-icons/go';
 import { withRouter } from 'react-router-dom';
 import ToggleButton from 'react-toggle-button';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
+import { APP } from 'config/config.json';
 
 const cx = classNames.bind(styles);
 
@@ -45,9 +46,8 @@ const EditorHeader = ({
           </div>
         ) : (
           <FacebookLogin
-            appId="837532103265015"
-            fields="name,picture,link"
-            scope="user_link"
+            appId={APP}
+            fields="name,picture"
             callback={response => {
               onLogin(response);
             }}

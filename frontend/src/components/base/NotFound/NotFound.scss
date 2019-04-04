@@ -1,0 +1,43 @@
+@import 'utils';
+
+.notfound {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  .notfound-contents {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    h1 {
+      margin: 0;
+      font-size: 8rem;
+      color: $oc-blue-7;
+    }
+    p {
+      margin: 0;
+      margin-left: 10px;
+      font-size: 4rem;
+    }
+    button {
+      border: none;
+      outline: none;
+      background: $oc-green-5;
+      padding: 1em 2.5em;
+      border-radius: 5px;
+      margin-top: 2em;
+      margin-left: 10px;
+      cursor: pointer;
+      span {
+        font-family: 'NanumSquare', sans-serif;
+        font-weight: 600;
+        font-size: 1.5em;
+        color: white;
+      }
+      &:hover {
+        background-color: $oc-green-7;
+      }
+    }
+  }
+}

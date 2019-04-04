@@ -26,6 +26,8 @@ class StoryStore {
   }
   @asyncAction
   async *getStory() {
+    this.count = 0;
+    this.stat = 'pending';
     try {
       const { data, status } = yield StoryRepository.getStory(this.count);
       if (status === 200) {

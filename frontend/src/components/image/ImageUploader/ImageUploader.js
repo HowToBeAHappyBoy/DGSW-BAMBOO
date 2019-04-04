@@ -25,7 +25,6 @@ const ImageUploader = ({ onUpload, images, onRemove }) => {
     }
     let type = file.name.split('.');
     type = type[type.length - 1].toLowerCase();
-    console.log(type);
     if (type !== 'png' && type !== 'jpg' && type !== 'jpeg') {
       Swal.fire({
         type: 'error',

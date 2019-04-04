@@ -29,7 +29,6 @@ class StoryContainer extends Component {
       (document.documentElement && document.documentElement.scrollTop) ||
       document.body.scrollTop;
     if (scrollHeight - innerHeight - scrollTop < 10) {
-      console.log('Almost Bottom Of This Browser');
       this.props.store.story.getMoreStory();
     }
   };
@@ -40,8 +39,6 @@ class StoryContainer extends Component {
 
   render() {
     const { storyList, stat, moreStat } = this.props.store.story;
-    console.log(stat);
-    storyList.map(e => console.log(e.admin));
     return (
       <>
         {(() => {

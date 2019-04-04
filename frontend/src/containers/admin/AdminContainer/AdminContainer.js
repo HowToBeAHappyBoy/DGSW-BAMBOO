@@ -30,7 +30,6 @@ class AdminContainer extends Component {
       (document.documentElement && document.documentElement.scrollTop) ||
       document.body.scrollTop;
     if (scrollHeight - innerHeight - scrollTop < 10) {
-      console.log('Almost Bottom Of This Browser');
       this.props.store.admin.getMoreStory();
     }
   };
@@ -44,8 +43,6 @@ class AdminContainer extends Component {
 
   render() {
     const { waitList, stat, moreStat } = this.props.store.admin;
-    console.log(stat);
-    waitList.map(e => console.log(e.admin));
     return (
       <>
         {(() => {

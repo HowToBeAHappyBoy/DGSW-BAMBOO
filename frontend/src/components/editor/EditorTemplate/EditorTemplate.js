@@ -66,7 +66,6 @@ class EditorTemplate extends Component {
       ...this.state,
       images: [...this.state.images].concat([img]),
     });
-    console.log(this.state.images);
   };
   handleRemove = url => {
     const { images } = this.state;

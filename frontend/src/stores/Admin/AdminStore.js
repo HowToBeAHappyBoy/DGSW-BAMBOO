@@ -33,7 +33,6 @@ class AdminStore {
       const { data, status } = yield AdminRepository.getStory(this.count, 0);
       if (status === 200) {
         setTimeout(() => {
-          console.log(data);
           this.waitList = data.post.map(wait => wait);
           this.count += 5;
           this.stat = 'success';
@@ -45,7 +44,7 @@ class AdminStore {
       if (!error.response) {
         this.stat = 'error';
         return;
-      }else if(error.response && error.response.status === 401){
+      } else if (error.response && error.response.status === 401) {
         this.stat = 'jwtError';
         return;
       }
@@ -53,7 +52,6 @@ class AdminStore {
   }
   @asyncAction
   async *getMoreStory() {
-    console.log(this.maxCount);
     if (
       this.count > this.maxCount ||
       this.moreStat === 'pending' ||

@@ -5,7 +5,9 @@
   height: 100vh;
   width: 350px;
   background-color: #f2f2f5;
-  box-shadow: -70px 0 100px black;
+  box-shadow: black -70px 0 100px;
+  -webkit-box-shadow: black -70px 0 100px;
+  -moz-box-shadow: black -70px 0 100px;
   z-index: 1;
   .side-bar {
     margin: auto;

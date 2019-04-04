@@ -9,7 +9,7 @@ import {
   FaCloudDownloadAlt,
   FaFacebook,
 } from 'react-icons/fa';
-import { MdBugReport } from 'react-icons/md';
+import { MdBugReport, MdSettings } from 'react-icons/md';
 import { NavLink } from 'react-router-dom';
 import { LOGO } from 'config/config.json';
 
@@ -35,6 +35,12 @@ const Sidebar = () => {
               <li className={cx('list-menu')}>
                 <FaPencilAlt size={25} className={cx('menu-icon')} />
                 <p className={cx('menu-name')}>제보하기</p>
+              </li>
+            </NavLink>
+            <NavLink exact to="/admin" activeClassName={cx('active')}>
+              <li className={cx('list-menu')}>
+                <MdSettings size={25} className={cx('menu-icon')} />
+                <p className={cx('menu-name')}>관리자</p>
               </li>
             </NavLink>
           </ul>

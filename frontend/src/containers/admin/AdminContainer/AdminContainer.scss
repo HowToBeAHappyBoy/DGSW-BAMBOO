@@ -1,0 +1,50 @@
+@import 'utils';
+
+.admin-container {
+  display: flex;
+  flex: 1;
+  flex-grow: 1;
+  flex-direction: column;
+  overflow: auto;
+  height: 100%;
+  margin-left: 350px;
+  .buttons {
+    margin-top: 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    .button {
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      outline: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.6em 1.2em;
+      font-size: 1em;
+      border-radius: 5px;
+      width: 120px;
+      span {
+        font-family: 'NanumSquare', sans-serif;
+        font-weight: 600;
+      }
+    }
+    .button + .button {
+      margin: 0 3em;
+    }
+    .refresh {
+      background: $oc-green-5;
+      &:hover {
+        background: $oc-green-7;
+      }
+    }
+    .logout {
+      background: $oc-indigo-5;
+      &:hover {
+        background: $oc-indigo-8;
+      }
+    }
+  }
+}

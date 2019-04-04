@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
 import LoaderComponent from 'components/common/LoaderComponent';
-import StoryList from 'components/main/StoryList';
+import CardList from 'components/story/CardList';
 import classNames from 'classnames/bind';
 import styles from './StoryContainer.scss';
+import ErrorComponent from 'components/common/ErrorComponent';
 
 const cx = classNames.bind(styles);
 
@@ -17,8 +18,11 @@ class StoryContainer extends Component {
     window.addEventListener('scroll', this.handleScroll);
   }
 
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+
   handleScroll = () => {
-    console.log('scroll');
     const { innerHeight } = window;
     const { scrollHeight } = document.body;
     const scrollTop =
@@ -28,6 +32,10 @@ class StoryContainer extends Component {
       console.log('Almost Bottom Of This Browser');
       this.props.store.story.getMoreStory();
     }
+  };
+
+  handleRefresh = () => {
+    this.props.store.story.getStory();
   };
 
   render() {
@@ -41,16 +49,15 @@ class StoryContainer extends Component {
             case 'success':
               return (
                 <div className={cx('story-container')}>
-                  <StoryList list={storyList} type="wait" />
+                  <CardList list={storyList} type="allow" />
                   {moreStat === 'pending' && <LoaderComponent />}
                 </div>
               );
             case 'pending':
               return <LoaderComponent height={'100vh'} />;
             case 'error':
-              return <div>에러</div>;
             default:
-              return <div>에러</div>;
+              return <ErrorComponent onRefresh={this.handleRefresh} />;
           }
         })()}
       </>

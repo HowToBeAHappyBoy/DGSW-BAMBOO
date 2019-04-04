@@ -3,6 +3,7 @@ import styles from './Card.scss';
 import classNames from 'classnames/bind';
 import { PANDA } from 'config/config.json';
 import ImageViewer from 'components/image/ImageViewer';
+import { FaFacebookF } from 'react-icons/fa';
 
 const cx = classNames.bind(styles);
 
@@ -13,10 +14,22 @@ const Card = ({ story, width, type, onAllow, onReject }) => {
     <div className={cx('story')} style={{ maxWidth: width, minWidth: width }}>
       <div className={cx('story-header')}>
         <h1 className={cx('header-title')}>
-          {type === 'allow'
+          {type === 'allow' || type === 'preview'
             ? `${story.idx}번째 이야기`
             : `${writeDate.toLocaleString()}`}
         </h1>
+        {type === 'allow' && (
+          <a
+            className={cx('header-facebook')}
+            href={`https://www.facebook.com/hashtag/대소고_${
+              story.idx
+            }번째_이야기`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaFacebookF className={cx('facebook-logo')} />
+          </a>
+        )}
       </div>
       <div className={cx('story-body')}>
         <pre className={cx('body-content')}>{story.content}</pre>
@@ -49,6 +62,7 @@ const Card = ({ story, width, type, onAllow, onReject }) => {
         {(() => {
           switch (type) {
             case 'allow':
+            case 'preview':
               return (
                 <div className={cx('footer-date')}>
                   <p className={cx('write-date')}>

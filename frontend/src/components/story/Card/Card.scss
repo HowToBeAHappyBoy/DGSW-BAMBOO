@@ -12,11 +12,31 @@
   border: 1px solid #ebebeb;
   user-select: none;
   .story-header {
-    text-align: left;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     .header-title {
+      display: flex;
+      margin-right: auto;
       font-size: 20px;
       color: #454545;
       margin-bottom: 12px;
+    }
+    .header-facebook {
+      background: $oc-blue-7;
+      padding: 12px 14px;
+      border: none;
+      outline: none;
+      border-radius: 50%;
+      cursor: pointer;
+      .facebook-logo {
+        color: white;
+        font-size: 24px;
+      }
+      &:hover {
+        background: $oc-blue-9;
+      }
     }
   }
   .story-body {

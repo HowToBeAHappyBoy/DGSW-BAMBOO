@@ -1,0 +1,42 @@
+@import 'utils';
+
+.error-container {
+  display: flex;
+  flex: 1;
+  flex-grow: 1;
+  flex-direction: column;
+  overflow: auto;
+  height: 100vh;
+  margin-left: 350px;
+  justify-content: center;
+  align-items: center;
+  .error-contents {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    p {
+      font-size: 1.3em;
+      font-family: 'NanumSquare', sans-serif;
+      font-weight: 700;
+      margin: 1.3em;
+    }
+    button {
+      border: none;
+      outline: none;
+      background: $oc-blue-5;
+      padding: 1em 1.5em;
+      border-radius: 5px;
+      cursor: pointer;
+      span {
+        font-family: 'NanumSquare', sans-serif;
+        font-weight: 700;
+        font-size: 16px;
+        color: white;
+      }
+      &:hover {
+        background-color: $oc-blue-7;
+      }
+    }
+  }
+}

@@ -4,11 +4,9 @@ import StoryContainer from 'containers/main/StoryContainer';
 
 const HomePage = () => {
   return (
-    <>
-      <PageTemplate>
-        <StoryContainer />
-      </PageTemplate>
-    </>
+    <PageTemplate>
+      <StoryContainer />
+    </PageTemplate>
   );
 };
 

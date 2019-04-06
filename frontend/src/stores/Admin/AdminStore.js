@@ -41,10 +41,11 @@ class AdminStore {
         this.stat = 'error';
       }
     } catch (error) {
+      console.dir(error);
       if (!error.response) {
         this.stat = 'error';
         return;
-      } else if (error.response && error.response.status === 401) {
+      } else if (error.response && error.response.status === 403) {
         this.stat = 'jwtError';
         return;
       }

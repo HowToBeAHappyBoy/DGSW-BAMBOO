@@ -10,6 +10,16 @@
   margin-left: 350px;
   justify-content: center;
   align-items: center;
+  @include media('<large') {
+    height: 100%;
+    margin-left: 0;
+    .error-contents {
+      margin: 150px 0;
+      img {
+        display: none;
+      }
+    }
+  }
   .error-contents {
     display: flex;
     flex-direction: column;

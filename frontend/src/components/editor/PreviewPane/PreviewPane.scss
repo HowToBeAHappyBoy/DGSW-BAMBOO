@@ -7,6 +7,9 @@
   padding: 2rem;
   overflow-y: auto;
   font-size: 1.125rem;
+  @include media('<large') {
+    display: none;
+  }
   .title {
     user-select: none;
     text-align: center;

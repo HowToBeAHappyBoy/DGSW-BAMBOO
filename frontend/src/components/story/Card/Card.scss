@@ -4,16 +4,15 @@
   display: block;
   border-radius: 10px;
   padding: 30px 50px;
-  margin: 50px auto;
-  width: auto;
-  min-width: 800px;
+  margin: 50px 0;
   height: auto;
+  width: 100%;
+  max-width: 1000px;
   background-color: #ffffff;
   border: 1px solid #ebebeb;
   user-select: none;
   .story-header {
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: center;
     .header-title {
@@ -47,7 +46,7 @@
       line-height: 25px;
       user-select: text;
       white-space: pre-wrap;
-      word-wrap: break-all;
+      word-wrap: break-word;
       @import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
       font-family: 'NanumSquare', sans-serif;
     }
@@ -60,6 +59,13 @@
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
+    @include media('<medium') {
+      flex-direction: column;
+      .footer-buttons,
+      .footer-date {
+        margin-top: 12px;
+      }
+    }
     .footer-profile {
       display: flex;
       justify-content: center;

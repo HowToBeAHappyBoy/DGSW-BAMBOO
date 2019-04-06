@@ -5,6 +5,7 @@
   flex: 1;
   flex-grow: 1;
   flex-direction: column;
+  align-items: center;
   overflow: auto;
   height: 100%;
   margin-left: 350px;
@@ -31,10 +32,8 @@
         font-weight: 600;
       }
     }
-    .button + .button {
-      margin: 0 3em;
-    }
     .refresh {
+      margin-right: 1em;
       background: $oc-green-5;
       &:hover {
         background: $oc-green-7;
@@ -46,5 +45,9 @@
         background: $oc-indigo-8;
       }
     }
+  }
+  padding: 0 50px;
+  @include media('<large') {
+    margin-left: 0;
   }
 }

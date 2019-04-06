@@ -11,7 +11,7 @@ const Card = ({ story, width, type, onAllow, onReject }) => {
   const writeDate = new Date(story.writeDate);
   const allowDate = new Date(story.allowDate);
   return (
-    <div className={cx('story')} style={{ maxWidth: width, minWidth: width }}>
+    <div className={cx('story')}>
       <div className={cx('story-header')}>
         <h1 className={cx('header-title')}>
           {type === 'allow' || type === 'preview'

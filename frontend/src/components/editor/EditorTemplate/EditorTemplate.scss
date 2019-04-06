@@ -10,6 +10,14 @@
       min-width: 0;
       overflow: auto;
       flex: 0.5 1;
+      @include media('<large') {
+        flex: 1;
+      }
+    }
+    .preview {
+      @include media('<large') {
+        display: none;
+      }
     }
   }
 }

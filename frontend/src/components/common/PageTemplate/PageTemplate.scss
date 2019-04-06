@@ -3,6 +3,7 @@
   height: 100%;
   .page-template {
     display: flex;
+    flex-direction: column;
     flex: 1;
   }
 }

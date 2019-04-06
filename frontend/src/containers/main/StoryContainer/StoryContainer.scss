@@ -1,9 +1,16 @@
+@import 'utils';
 .story-container {
   display: flex;
   flex: 1;
   flex-grow: 1;
   flex-direction: column;
+  align-items: center;
   overflow: auto;
+  overflow-x: hidden;
   height: 100%;
   margin-left: 350px;
+  padding: 0 50px;
+  @include media('<large') {
+    margin-left: 0;
+  }
 }

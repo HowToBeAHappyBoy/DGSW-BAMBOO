@@ -127,6 +127,14 @@ const Thumbnail = styled.div`
   background-repeat: no-repeat;
   background-position: center center;
   .close-button-wrapper {
+    @media (max-width: 640px) {
+      opacity: 0.7;
+      .close-button {
+        opacity: 1;
+        cursor: pointer;
+        color: white;
+      }
+    }
     opacity: 0;
     background-color: #454545;
     width: 100%;

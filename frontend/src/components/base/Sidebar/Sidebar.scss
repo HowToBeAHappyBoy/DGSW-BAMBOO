@@ -83,6 +83,9 @@
     margin-left: auto;
     list-style-type: none;
     li {
+      @include media('<640px') {
+        font-size: 10px;
+      }
       padding: 0.7em;
       color: white;
       border: 1px solid white;

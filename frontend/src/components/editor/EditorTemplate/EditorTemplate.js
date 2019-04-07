@@ -147,7 +147,19 @@ class EditorTemplate extends Component {
         }
       });
     } else {
-      this.handleSubmit();
+      await Swal.fire({
+        title: '제보하시겠습니까?',
+        type: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#51cf66',
+        cancelButtonColor: '#d33',
+        confirmButtonText: '제보하기',
+        cancelButtonText: '취소하기',
+      }).then(result => {
+        if (result.value) {
+          this.handleSubmit();
+        }
+      });
     }
   };
   render() {

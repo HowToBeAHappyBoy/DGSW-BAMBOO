@@ -1,9 +1,11 @@
+@import 'utils';
+
 .image-viewer {
   margin: 30px 0;
   padding: 15px;
   border: 1px solid black;
   width: auto;
-  max-width: 35%;
+  max-width: 300px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -15,7 +17,16 @@
     justify-content: flex-start;
     align-items: center;
     .image-title {
-      margin-left: 30px;
+      @include media('<640px') {
+        font-size: 12px;
+      }
+      margin-left: 20px;
+    }
+    .image-icon {
+      @include media('<640px') {
+        width: 30px;
+        height: 30px;
+      }
     }
   }
 }

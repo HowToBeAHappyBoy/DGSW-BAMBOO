@@ -48,6 +48,7 @@ const EditorHeader = ({
           <FacebookLogin
             appId={APP}
             fields="name,picture"
+            scope="public_profile"
             callback={response => {
               onLogin(response);
             }}

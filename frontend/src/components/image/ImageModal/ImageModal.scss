@@ -1,39 +1,58 @@
 .image-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba($color: #000000, $alpha: .6);
-    z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($color: #000000, $alpha: 0.6);
+  z-index: 1;
 }
-.image-container{
-    position: fixed;
-    background-color: white;
-    width: 50%;
-    height: auto;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    z-index: 2;
+.image-container {
+  position: fixed;
+  background-color: white;
+  width: 50%;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
 }
-.image-cancel{
-    margin: 5px 30px;
-    float: right;
-    width: 5em;
-    height: 5em;
-    border: none;
-    background-color: transparent;
-    outline: none;
-    .cancel-button{
-        z-index: 3;
-        color: white;
-        cursor: pointer;
+.image-cancel {
+  display: flex;
+  margin: 5px;
+  margin-right: 10px;
+  margin-left: auto;
+  width: 5em;
+  height: 5em;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  .cancel-button {
+    z-index: 3;
+    color: #ffffffaa;
+    cursor: pointer;
+    &:hover {
+      color: white;
     }
+  }
 }
-.display-block{
-    display: block;
+.display-block {
+  display: block;
 }
-.display-none{
-    display: none;
+.display-none {
+  display: none;
+}
+.image-gallery-slide {
+  background-color: #000000 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 800px;
+  border: none;
+  img {
+    height: auto;
+    width: auto;
+    max-height: 800px;
+    max-width: 500px;
+  }
 }

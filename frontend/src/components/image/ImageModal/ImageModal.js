@@ -6,7 +6,7 @@ import ImageGallery from 'react-image-gallery';
 
 const cx = classNames.bind(styles);
 
-const ImageModal = ({ images, change, show }) => {
+const ImageModal = ({ images, change, show, cancel }) => {
   const image = [];
   images.forEach(e => {
     image.push({
@@ -14,11 +14,15 @@ const ImageModal = ({ images, change, show }) => {
     });
   });
   return (
-    <div className={cx('image-modal', show ? 'display-block' : 'display-none')}>
+    <div
+      className={cx('image-modal', show ? 'display-block' : 'display-none')}
+      id="modal-container"
+      onClick={change}
+    >
       <button
         className={cx('image-cancel')}
         onClick={() => {
-          change(false);
+          cancel(false);
         }}
       >
         <GoX size={30} className={cx('cancel-button')} />

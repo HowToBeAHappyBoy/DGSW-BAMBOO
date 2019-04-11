@@ -8,6 +8,14 @@ const cx = classNames.bind(styles);
 
 const ImageViewer = ({ images }) => {
   const [show, setShow] = useState(false);
+  const changeShow = e => {
+    if (e.target.id === 'modal-container') {
+      setShow(!show);
+      return;
+    } else {
+      return;
+    }
+  };
   return (
     <>
       <div
@@ -25,7 +33,14 @@ const ImageViewer = ({ images }) => {
           <p className={cx('image-title')}>{images.length} 장의 사진 포함</p>
         </div>
       </div>
-      {show && <ImageModal images={images} change={setShow} show={show} />}
+      {show && (
+        <ImageModal
+          images={images}
+          change={changeShow}
+          cancel={setShow}
+          show={show}
+        />
+      )}
     </>
   );
 };

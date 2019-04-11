@@ -11,6 +11,7 @@ const ImageViewer = ({ images }) => {
   const changeShow = e => {
     if (e.target.id === 'modal-container') {
       setShow(!show);
+      document.body.style.overflow = 'auto';
       return;
     } else {
       return;
@@ -22,6 +23,7 @@ const ImageViewer = ({ images }) => {
         className={cx('image-viewer')}
         onClick={() => {
           setShow(true);
+          document.body.style.overflow = 'hidden';
         }}
       >
         <div className={cx('image-items')}>

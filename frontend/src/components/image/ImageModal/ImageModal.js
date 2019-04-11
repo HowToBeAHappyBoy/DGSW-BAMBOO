@@ -23,6 +23,7 @@ const ImageModal = ({ images, change, show, cancel }) => {
         className={cx('image-cancel')}
         onClick={() => {
           cancel(false);
+          document.body.style.overflow = 'auto';
         }}
       >
         <GoX size={30} className={cx('cancel-button')} />

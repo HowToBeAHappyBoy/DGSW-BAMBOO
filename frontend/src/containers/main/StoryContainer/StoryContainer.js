@@ -53,6 +53,11 @@ class StoryContainer extends Component {
             case 'pending':
               return <LoaderComponent height={'100vh'} />;
             case 'error':
+              if (!this.props.store.story.maxCount) {
+                return <></>;
+              } else {
+                return <ErrorComponent onRefresh={this.handleRefresh} />;
+              }
             default:
               return <ErrorComponent onRefresh={this.handleRefresh} />;
           }

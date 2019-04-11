@@ -1,3 +1,4 @@
+@import 'utils';
 .image-modal {
   position: fixed;
   top: 0;
@@ -48,6 +49,9 @@
   align-items: center;
   justify-content: center;
   min-height: 800px;
+  @include media('<640px') {
+    min-height: 0;
+  }
   border: none;
   img {
     height: auto;

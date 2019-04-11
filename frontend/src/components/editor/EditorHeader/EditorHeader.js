@@ -49,6 +49,8 @@ const EditorHeader = ({
             appId={APP}
             fields="name,picture"
             scope="public_profile"
+            isMobile={true}
+            disableMobileRedirect={true}
             callback={response => {
               onLogin(response);
             }}

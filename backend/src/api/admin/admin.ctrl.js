@@ -129,10 +129,13 @@ exports.allow = async (req, res) => {
       writerUrl,
       imgs,
     } = post;
-    const date = new Date(writeDate);
-    let posting = `#대소고_${idx}번째_이야기 \n${date.toLocaleString()}\n\n\n${content}`;
+    let posting = `#대소고_${idx}번째_이야기 \n${writeDate.toLocaleString()}\n\n\n${content}`;
     if (type) {
-      posting += `\n\n\n\n${writerName}님${writerUrl && `(${writerUrl})`} 제보`;
+      posting += `\n\n\n\n${writerName}`;
+      if (writerUrl) {
+        posting += ` (${writerUrl})`;
+      }
+      posting += ' 님 제보';
     } else {
       posting += '\n\n\n\n 익명 제보';
     }

@@ -1,7 +1,9 @@
 language: node_js
 node_js:
   - "10.14"
-cache: npm
+cache:
+  directories:
+    - node_modules
 before_install:
   - cd frontend
   - mv ./src/config.example ./src/config

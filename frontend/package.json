@@ -54,6 +54,7 @@
     "react-dom": "^16.8.1",
     "react-facebook-login": "^4.1.1",
     "react-flip-move": "^3.0.3",
+    "react-helmet": "^5.2.0",
     "react-icons": "^3.5.0",
     "react-image-gallery": "^0.8.14",
     "react-images-upload": "^1.2.6",
@@ -75,7 +76,9 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "deploy": "aws s3 sync ./build s3://dgswbamboo.com --profile=dgsw-bamboo",
+    "invalidate": "aws cloudfront create-invalidation --profile=dgsw-bamboo --distribution-id E2VF1KCJWKX2R6 --paths / /index.html /error.html /service-worker.js /manifest.json /favicon.ico"
   },
   "eslintConfig": {
     "extends": "react-app"

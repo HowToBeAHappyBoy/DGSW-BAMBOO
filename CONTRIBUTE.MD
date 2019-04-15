@@ -42,6 +42,14 @@ frontend/src/config/config.json
   }
 ```
 
+### env 파일 생성
+
+frontend 폴더에 .env 파일 생성 후 아래 내용 작성
+
+```
+NODE_PATH=src
+```
+
 ### 서버 시작
 
 ```

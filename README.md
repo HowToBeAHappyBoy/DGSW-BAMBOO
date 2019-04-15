@@ -1,5 +1,7 @@
 # :bamboo: DGSW-BAMBOO :bamboo:
 
+[![Build Status](https://travis-ci.org/tbvjaos510/DGSW-BAMBOO.svg?branch=master)](https://travis-ci.org/tbvjaos510/DGSW-BAMBOO)
+
 :bamboo: 대소고 대나무 숲 시즌 2 :bamboo:
 
 ## About

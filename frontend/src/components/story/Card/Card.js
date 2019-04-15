@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Card.scss';
 import classNames from 'classnames/bind';
-import { PANDA } from 'config/config.json';
+import PANDA from 'static/media/panda.jpg';
 import ImageViewer from 'components/image/ImageViewer';
 import { FaFacebookF } from 'react-icons/fa';
 

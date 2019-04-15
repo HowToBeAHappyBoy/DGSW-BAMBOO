@@ -11,7 +11,7 @@ import {
 } from 'react-icons/fa';
 import { MdBugReport, MdSettings } from 'react-icons/md';
 import { NavLink } from 'react-router-dom';
-import { LOGO } from 'config/config.json';
+import LOGO from 'static/media/logo.jpg';
 
 const cx = classNames.bind(styles);
 

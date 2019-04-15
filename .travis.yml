@@ -2,12 +2,12 @@ language: node_js
 node_js:
   - "10.14"
 before_install:
-  - npm install -g yarn
-  - cd backend
+  - cd frontend
+  - mv ./src/config.example ./src/config
+install:
+  - npm install
+script:
+  - npm run build
 branches:
   only:
     - master
-notifications:
-  email:
-    recipients:
-      - i.love.my.cute.code@gmail.com

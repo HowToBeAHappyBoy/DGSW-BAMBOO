@@ -1,9 +1,9 @@
 const axios = require('axios');
-const { FB } = require('config/serverconfig.json');
+const { FB, PAGE } = require('config/serverconfig.json');
 
 const uploadPhoto = url => new Promise((resolve, reject) => {
   axios
-    .post('https://graph.facebook.com/267795647464500/photos', {
+    .post(`https://graph.facebook.com/${PAGE}/photos`, {
       url,
       published: false,
       access_token: FB,
@@ -25,7 +25,7 @@ exports.uploadWithImg = async (imgs, data) => {
           error: e.response.error.message,
         }));
     }
-    const feed = await axios.post('https://graph.facebook.com/267795647464500/feed', {
+    const feed = await axios.post(`https://graph.facebook.com/${PAGE}/feed`, {
       attached_media: ids,
       message: data,
       access_token: FB,

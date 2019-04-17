@@ -21,9 +21,7 @@ const Card = ({ story, width, type, onAllow, onReject }) => {
         {type === 'allow' && (
           <a
             className={cx('header-facebook')}
-            href={`https://www.facebook.com/hashtag/대소고_${
-              story.idx
-            }번째_이야기`}
+            href={story.postUrl ? story.postUrl : `https://www.facebook.com/hashtag/대소고_${story.idx}번째_이야기`}
             target="_blank"
             rel="noopener noreferrer"
           >

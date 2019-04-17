@@ -130,6 +130,7 @@ exports.allow = async (req, res) => {
       imgs,
     } = post;
     let posting = `#대소고_${idx}번째_이야기 \n${writeDate.toLocaleString()}\n\n\n${content}`;
+    let postUrl;
     if (type) {
       posting += `\n\n\n\n${writerName}`;
       if (writerUrl) {
@@ -149,6 +150,7 @@ exports.allow = async (req, res) => {
         res.status(500).json(result);
         return;
       }
+      postUrl = `https://www.facebook.com/${fb.feed.data.id}`;
     } else {
       const fb = await facebook.uploadWithoutImg(posting);
       if (fb.type === 'error') {
@@ -159,6 +161,7 @@ exports.allow = async (req, res) => {
         res.status(500).json(result);
         return;
       }
+      postUrl = `https://www.facebook.com/${fb.feed.data.id}`;
     }
     await allowPost.create({
       idx,
@@ -170,6 +173,7 @@ exports.allow = async (req, res) => {
       writerName,
       writerPicture,
       writerUrl,
+      postUrl,
     });
     await waitPost.updateOne({ idx: id }, { $set: { isChange: true } });
     const result = {

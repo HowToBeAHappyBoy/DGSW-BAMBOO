@@ -12,6 +12,7 @@ const allowPost = Schema({
   writerPicture: { type: String, require: false },
   writerName: { type: String, require: false },
   writerUrl: { type: String, String, require: false },
+  postUrl: { type: String },
   admin: { type: String, require: true },
 }, {
   collection: 'allowPost',

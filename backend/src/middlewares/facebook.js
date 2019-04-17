@@ -44,7 +44,7 @@ exports.uploadWithImg = async (imgs, data) => {
 
 exports.uploadWithoutImg = async (data) => {
   try {
-    const feed = await axios.post('https://graph.facebook.com/267795647464500/feed', {
+    const feed = await axios.post(`https://graph.facebook.com/${PAGE}/feed`, {
       message: data,
       access_token: FB,
     });

@@ -10,7 +10,7 @@ import {
   FaFacebook,
 } from 'react-icons/fa';
 import { MdBugReport, MdSettings } from 'react-icons/md';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import LOGO from 'static/media/logo.jpg';
 
 const cx = classNames.bind(styles);
@@ -21,7 +21,7 @@ const Sidebar = () => {
       <nav className={cx('side-bar-container')}>
         <div className={cx('side-bar')}>
           <div className={cx('side-bar-logo')}>
-            <img src={LOGO} alt="logo" className={cx('logo-img')} />
+            <Link to="/"><img src={LOGO} alt="logo" className={cx('logo-img')} /></Link>
           </div>
           <div className={cx('side-bar-items')}>
             <ul className={cx('side-bar-list')}>

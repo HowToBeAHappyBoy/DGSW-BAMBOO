@@ -11,6 +11,8 @@ install:
   - npm install
 script:
   - npm run build
+  - npm run deploy
+  - npm run invalidate
 branches:
   only:
     - master

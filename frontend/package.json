@@ -64,6 +64,7 @@
     "react-mobx": "^0.0.4",
     "react-router-dom": "^4.3.1",
     "react-toggle-button": "^2.2.0",
+    "react-tooltip": "^3.10.0",
     "resolve": "1.10.0",
     "sass-loader": "7.1.0",
     "style-loader": "0.23.1",

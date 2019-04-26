@@ -1,3 +1,5 @@
+@import 'utils';
+
 .page-wrap {
   display: flex;
   height: 100%;
@@ -6,5 +8,21 @@
     flex-direction: column;
     flex: 1;
     min-height: 100vh;
+  }
+  .top-button{
+    display: inline-block;
+    position: sticky;
+    top: 920px;
+    right: 30px;
+    width: 55px;
+    height: 55px;
+    border: none;
+    outline: none;
+    background-color: $oc-green-5;
+    color: white;
+    border-radius: 7px;
+    font-size: 25px;
+    cursor: pointer;
+    padding-top: 5px;
   }
 }
